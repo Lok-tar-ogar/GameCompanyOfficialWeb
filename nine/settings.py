@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'NineCo'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'nine.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(os.path.dirname(__file__), '../learn/templates').replace('\\', '/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,16 +77,21 @@ WSGI_APPLICATION = 'nine.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'NineDB',
+        'USER': 'root',
+        'PASSWORD': 'd!ck1999',
+        'HOST': '56167fff1aa77.sh.cdb.myqcloud.com',
+        'PORT': '7069',
     }
 }
+
 
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-cn'
 
 TIME_ZONE = 'UTC'
 
@@ -98,5 +104,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-
+STATIC_ROOT = os.path.join(
+    os.path.dirname(__file__), '../NineCo/static').replace('\\', '/')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    ('css', os.path.join(STATIC_ROOT, 'css')),
+    ('fonts', os.path.join(STATIC_ROOT, 'fonts')),
+    ('js', os.path.join(STATIC_ROOT, 'js')))
