@@ -34,7 +34,7 @@ class JobsInfo(models.Model):
     def __str__(self):
         return self.jobTitle
 
-
+'''
 class JobsSort(models.Model):
     sortName = models.CharField(max_length=50)
     sortFather = models.ForeignKey(JobsSort, blank=True)
@@ -43,7 +43,7 @@ class JobsSort(models.Model):
 
     def __str__(self):
         return self.sortName
-
+'''
 
 class News(models.Model):
     newsTitle = models.CharField(max_length=50)
