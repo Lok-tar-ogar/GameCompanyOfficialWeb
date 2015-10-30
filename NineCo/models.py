@@ -83,7 +83,7 @@ class News(models.Model):
     newsTitle = models.CharField(max_length=50)
     newsDetail = models.CharField(max_length=5000)
     viewedTimes = models.IntegerField()  # obviously it is what it looks like.
-    dimDate = models.DateTimeField()  # timezone.now()
+    dimDate = models.DateTimeField(auto_now_add=True)  # timezone.now()
 
     def __str__(self):
         return self.sortName
