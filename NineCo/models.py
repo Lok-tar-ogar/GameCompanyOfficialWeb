@@ -48,18 +48,6 @@ class Classification(models.Model):  # job class
     def __str__(self):
         return self.name
 
-<<<<<<< HEAD
-'''
-class JobsSort(models.Model):
-    sortName = models.CharField(max_length=50)
-    sortFather = models.ForeignKey(JobsSort, blank=True)
-    jobTo = models.ForeignKey(JobsInfo, blank=True)
-    dimDate = models.DateTimeField()  # timezone.now()
-
-    def __str__(self):
-        return self.sortName
-'''
-=======
 
 class GameClass (models.Model):
     name = models.CharField(max_length=50)
@@ -90,7 +78,6 @@ class JobsInfo(models.Model):
     def __str__(self):
         return self.jobTitle
 
->>>>>>> 8892cb1cdad0af1c92464a160da0be6336598a01
 
 class News(models.Model):
     newsTitle = models.CharField(max_length=50)
