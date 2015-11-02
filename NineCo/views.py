@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render_to_response
-from NiceCo.models import JobsInfo,Classification
+from NineCo.models import JobsInfo,Classification
 
 
 def Index(request):
