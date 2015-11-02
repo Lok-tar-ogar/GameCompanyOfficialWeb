@@ -10,11 +10,9 @@
 		color: black;
 	}
 	.TriOrigin{
-		padding-left: 55px;
 		display: none;
 	}
 	.TriClick{
-		padding-left:55px;
 		display:block;
 	}
 	.imgOrigin{
@@ -31,27 +29,80 @@
 	.textClick{
 		display:block;
 	}
-	a hover{
+	a:visited{
 		color:#B7AC30;
+		text-decoration: none;
+	}
+	a:hover{
+		color:#B7AC30;
+		text-decoration: none;
+	}
+	a:link {
+		color:#B7AC30;
+		text-decoration: none;
+	}
+	Astyle{
+		color:#B7AC30;
+	}
+	AOrigin{
+		color:#fff;
 	}
 </style>
 {% endblock %}
 {% block content %}
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#profile').click(function(){
+			$("profile").removeClass('AOrigin').addClass('Astyle');
+			$("#imgSummary").parent().children().removeClass('imgClick').addClass('imgOrigin');
+			$("#imgSummary").removeClass('imgOrigin').addClass('imgClick');
+			$("#TextSummary").parent().children().removeClass('textClick').addClass('textOrigin');
+			$("#TextSummary").removeClass('textOrigin').addClass('textClick');
+			$("#TriSumary").parent().children().removeClass('TriClick').addClass('TriOrigin');
+			$("#TriSumary").removeClass('TriOrigin').addClass('TriClick');						
+		});
+		$("#target").click(function(){
+			
+			$("#imgTarget").parent().children().removeClass('imgClick').addClass('imgOrigin');
+			$("#imgTarget").removeClass('imgOrigin').addClass('imgClick');
+			$("#TextTarget").parent().children().removeClass('textClick').addClass('textOrigin');
+			$("#TextTarget").removeClass('textOrigin').addClass('textClick');
+			$("#TriTarget").parent().children().removeClass('TriClick').addClass('TriOrigin');
+			$("#TriTarget").removeClass('TriOrigin').addClass('TriClick');	
+		});
+		$("#culture").click(function(){
+			$("#imgCulture").parent().children().removeClass('imgClick').addClass('imgOrigin');
+			$("#imgCulture").removeClass('imgOrigin').addClass('imgClick');
+			$("#TextCulture").parent().children().removeClass('textClick').addClass('textOrigin');
+			$("#TextCulture").removeClass('textOrigin').addClass('textClick');
+			$("#TriCulture").parent().children().removeClass('TriClick').addClass('TriOrigin');
+			$("#TriCulture").removeClass('TriOrigin').addClass('TriClick');				
+		});
+		$("#Team").click(function(){
+			$("#imgTeam").parent().children().removeClass('imgClick').addClass('imgOrigin');
+			$("#imgTeam").removeClass('imgOrigin').addClass('imgClick');
+			$("#TextTeam").parent().children().removeClass('textClick').addClass('textOrigin');
+			$("#TextTeam").removeClass('textOrigin').addClass('textClick');
+			$("#TriTeam").parent().children().removeClass('TriClick').addClass('TriOrigin');
+			$("#TriTeam").removeClass('TriOrigin').addClass('TriClick');				
+		});
+	});
+</script>
 	<div class="container" >
 		<img class="col-md-12" src="{% static "img/summary.jpg" %}" alt="About Us" >
 		<div class="col-md-12" style="margin-top:40px;"></div>
 		<div class="col-md-12">
 			<div class="col-md-2" >
-			&nbsp;	
+			&nbsp;<a id="top"></a>
 			</div>
 			<div class="col-md-2">
 			&nbsp;
 			</div>
 			<div class="col-md-6">
-				<a href="#" class="style" style="padding-left:30px;">公司简介</a>
-				<a href="#" class="style">企业目标</a>
-				<a href="#" class="style">企业文化</a>
-				<a href="#" class="style">团队介绍</a>
+				<a href="javascript:void(0);" class="style" style="padding-left:30px;" id="profile">公司简介</a>
+				<a href="javascript:void(0);" class="style"  id="target">企业目标</a>
+				<a href="javascript:void(0);" class="style"  id="culture">企业文化</a>
+				<a href="javascript:void(0);" class="style"  id="Team">团队介绍</a>
 			</div>
 			<div class="col-md-2">
 			&nbsp;
@@ -76,10 +127,10 @@
 				&nbsp;
 			</div>
 			<div class="col-md-6">
-				<img id="TriSumary" src="{% static "img/yellowTri.jpg" %}" class="TriClick">
-				<img id="TriTarget" src="{% static "img/yellowTri.jpg" %}" class="TriOrigin">
-				<img id="TriCulture" src="{% static "img/yellowTri.jpg" %}" class="TriOrigin">
-				<img id="TriTeam" src="{% static "img/yellowTri.jpg" %}" class="TriOrigin">
+				<img id="TriSumary" src="{% static "img/yellowTri.jpg" %}" style="padding-left:55px;" class="TriClick">
+				<img id="TriTarget" src="{% static "img/yellowTri.jpg" %}" style="padding-left:140px;" class="TriOrigin">
+				<img id="TriCulture" src="{% static "img/yellowTri.jpg" %}" style="padding-left:235px;" class="TriOrigin">
+				<img id="TriTeam" src="{% static "img/yellowTri.jpg" %}" style="padding-left:320px;" class="TriOrigin">
 			</div>
 			<div class="col-md-2">
 				&nbsp;

@@ -74,7 +74,7 @@ ul.navig li a:hover{
 .search-bar input[type="submit"]{
 	width:20%;
 	padding:10px;
-	background:#ff7105 url(../images/search.png)no-repeat 15px;
+	background:#ff7105 url(../img/search.png)no-repeat 15px;
 	outline:none;
 	-webkit-appearance: none;
 	border:0;
@@ -462,7 +462,7 @@ width: 25%!important;
 /*-- Gallery Part Ends Here --*/
 /*-- Video search Parts starts Here --*/
 .video-serch{
-	background:url(../images/vid-bg.jpg)no-repeat;
+	background:url(../img/vid-bg.jpg)no-repeat;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -595,7 +595,7 @@ ul.social li{
 ul.social li i{
 	width:70px;
 	height:70px;
-	background:url(../images/social-icons.png)no-repeat;
+	background:url(../img/social-icons.png)no-repeat;
 	display:inline-block;
 	cursor:pointer;
 }
@@ -710,7 +710,7 @@ ul.game-list li a:hover{
    -moz-box-shadow: 1px 1px 2px #e6e6e6;
    box-shadow: 1px 1px 2px #e6e6e6;
    cursor: default;
-   background: #fff url(../images/bgimg.jpg) no-repeat center center;
+   background: #fff url(../img/bgimg.jpg) no-repeat center center;
 }
 .view .mask,.view .content {
    width: 300px;
@@ -1225,7 +1225,7 @@ ul.tags_links li a:hover{
 	span.menu{
 		width:32px;
 		height:32px;
-		background:url(../images/nav.png)no-repeat;
+		background:url(../img/nav.png)no-repeat;
 		display: inline-block;
 		float:right;
 		cursor: pointer;
