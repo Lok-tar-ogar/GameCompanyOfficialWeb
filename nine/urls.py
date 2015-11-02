@@ -19,7 +19,11 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'NineCo.views.Index', name='home'),
+<<<<<<< HEAD
     url(r'^AboutUs/$', 'NineCo.views.summary', name='About us'),
+=======
+    url(r'^contact/', 'NineCo.views.contact'),
+>>>>>>> origin/master
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': '/static/'}),
 ]

@@ -1,0 +1,67 @@
+{% extends "sample.html" %} {% block title %}联系我们-九越互动{% endblock%} {% block head %}
+
+
+<!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=tb19rHcaEwN5gsNwu7rLwqGD8XuS54uV"></script>-->
+ {% endblock%} {% load staticfiles %} {% block content %}
+<div class="row">
+    <div class="container">
+        <img class="col-md-12" src="{% static "img/partner.jpg" %}" />
+    </div>
+</div>
+    
+<div class="row">
+<div class="container">
+<div class="row" style="margin-top:20px">
+<div class="col-md-3">
+</div>
+
+ <div class="col-md-6">
+ <div class="row" style="
+  font-family: "Microsoft YaHei";
+ 
+  line-height: 0.75;
+">
+ <div class="col-xs-6 text-center">商务合作</div>
+ <div class="col-xs-6 text-center">战略合作</div>
+ </div>
+ 
+</div>
+
+
+<div class="col-md-3"></div>
+</div><hr  />
+<div class="row">
+
+<div class="col-md-3">
+    
+</div>
+ <div class="col-md-3">
+    
+<div id="allmap">
+    <img style="width:200px;height:200px" src="{% static "img/allmap.png" %}">
+</div>
+
+</div>
+
+<div class="col-md-3">
+    <p>地址：成都市高新区天府软件园E6区1118室</p>
+    <p>邮编：610000</p>
+    <p>客服电话：000000</p>
+    <p>客服qq：00000000</p>
+
+</div>
+
+<div class="col-md-3"></div>
+</div>
+</div>
+<script type="text/javascript">
+    // 百度地图API功能--等上线才能实施部署百度地图api
+    var map = new BMap.Map("allmap");    // 创建Map实例
+    map.centerAndZoom(new BMap.Point(104.074944,30.543463), 20);  // 
+    map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+    map.setCurrentCity("成都");          // 设置地图显示的城市 
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+</script>
+
+{% endblock %}
+

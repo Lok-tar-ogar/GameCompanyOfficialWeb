@@ -4,6 +4,7 @@
 	{% load staticfiles %}
 	<meta charset="UTF-8">
 	<title>{% block title %} {% endblock %}</title>
+	{% block head %} {% endblock%}
 	<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}" />
 	<link rel="stylesheet" type="text/css" href="{% static "css/site.css" %}" />
 	<script type="text/javascript" src="{% static "js/jquery-1.11.1.min.js" %}"></script>
@@ -56,13 +57,13 @@
 <div class="header" style="background:#131824">
 	<div class="container" >
 	
-		<div class="logo" style="margin-top:-10px">
+		<div class="logo" style="margin-top:-30px">
 			<a href="/index"><img src="{% static "img/logoFront.jpg" %}" alt=""></a>
 		</div>
 		<span class="menu" ></span>
 		
-		<div class="navigation" >
-			<ul class="navig cl-effect-3" >
+		<div class="navigation " >
+			<ul class="navig cl-effect-3 pull-right" >
 				<li><a href="#">首页</a></li>
 				<li><a href="#">关于我们</a></li>
 				<li><a href="#">九越咨询</a></li>
@@ -78,9 +79,11 @@
 				});
 			</script>
 		</div>
+
 		<div class="clearfix"></div>
 	</div>
 </div>
+
 <script type="text/javascript">
 	
 </script>
@@ -114,7 +117,7 @@
               <div class="col-xs-3">
                 <h4>加入九越互动</h4>
                 <ul class="list-unstyled">
-                  <li><a target="_blank" title="Bootstrap中文网官方微博" href="http://weibo.com/bootcss">新浪微博</a></li>
+                  <li><a target="_blank" href="http://weibo.com/">新浪微博</a></li>
                   <li><a href="mailto:admin@bootcss.com">电子邮件</a></li>
                 </ul>
               </div>
