@@ -49,11 +49,11 @@ ul.navig li{
 ul.navig li a{
 	text-transform:uppercase;
 	font-size:1em;
-	color:#4fbfa8;
+	color:#fff;
 	font-weight:700;
 }
 ul.navig li a:hover{
-	color:#ff7105;
+	color:#2F72B8;
 }
 .search-bar{
 	width:35%;
@@ -150,7 +150,7 @@ nav a:focus, ul.navig a:hover, ul.navig a:focus {
 	left: 0;
 	width: 100%;
 	height: 4px;
-	background: #ff7105;
+	background: #2F72B8;
 	content: '';
 	opacity: 0;
 	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
