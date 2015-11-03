@@ -19,7 +19,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'NineCo.views.Index', name='home'),
-    url(r'^AboutUs/$', 'NineCo.views.summary', name='About us'),
+    url(r'^About/$', 'NineCo.views.summary', name='About us'),
     url(r'^contact/', 'NineCo.views.contact'),
     url(r'^jobs/', 'NineCo.views.jobs'),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
