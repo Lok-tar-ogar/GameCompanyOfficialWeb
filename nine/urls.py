@@ -22,8 +22,8 @@ urlpatterns = [
     url(r'^About/$', 'NineCo.views.summary', name='About us'),
     url(r'^contact/', 'NineCo.views.contact'),
     url(r'^jobs/', 'NineCo.views.jobs'),
-     url(r'^games/', 'NineCo.views.gamelist'),
-     url(r'^gameclass/', 'NineCo.views.gamecl'),
+    url(r'^games/', 'NineCo.views.gamelist'),
+    url(r'^gameclass/', 'NineCo.views.gamecl'),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': '/static/'}),
 ]

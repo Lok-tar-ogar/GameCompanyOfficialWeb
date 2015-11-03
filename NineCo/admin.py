@@ -3,6 +3,17 @@ from NineCo.models import Carousel, Classification, GameClass, GameInfo, JobsInf
 
 
 class NewsAdmin(admin.ModelAdmin):
-    list_display = ('newsTitle', 'newsDetail', 'viewedTimes', 'dimDate')
-    search_fields = ('newsTitle')
-admin.site.register(News)
+
+    class Media:
+        js = (
+
+            '/static/tinymce/tinymce.min.js',
+            '/static/tinymce/config.js',
+
+        )
+admin.site.register(News, NewsAdmin)
+admin.site.register(GameClass)
+admin.site.register(GameInfo)
+admin.site.register(JobsInfo)
+admin.site.register(Carousel)
+admin.site.register(Classification)
