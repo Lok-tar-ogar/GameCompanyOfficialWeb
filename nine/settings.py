@@ -57,7 +57,7 @@ ROOT_URLCONF = 'nine.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(os.path.dirname(__file__), '../learn/templates').replace('\\', '/')],
+        'DIRS': [os.path.join(os.path.dirname(__file__), '../NineCo/templates').replace('\\', '/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

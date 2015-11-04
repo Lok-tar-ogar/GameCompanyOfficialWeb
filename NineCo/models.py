@@ -60,7 +60,7 @@ class GameInfo(models.Model):
     name = models.CharField(max_length=50)
     imgUrl = models.CharField(max_length=50, blank=True)
     Url = models.CharField(max_length=100, blank=True, null=True)
-    content = models.CharField(max_length=4000, blank=True, null=True)
+    content = models.TextField(max_length=4000, blank=True, null=True)
     gameType = models.ForeignKey(GameClass)
     dimDate = models.DateField(auto_now_add=True)
 
@@ -70,7 +70,7 @@ class GameInfo(models.Model):
 
 class JobsInfo(models.Model):
     jobTitle = models.CharField(max_length=50)  # job 's  name
-    jobDetail = models.CharField(max_length=2000)
+    jobDetail = models.TextField(max_length=2000)
     dimDate = models.DateTimeField(auto_now_add=True)  # timezone.now()
     classification = models.ForeignKey(Classification)
     status = models.CharField(max_length=5)  # job's status
