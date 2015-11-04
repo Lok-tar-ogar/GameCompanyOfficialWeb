@@ -2,26 +2,21 @@
 from django.db import models
 
 
-class UserAdmin(models.Model):
-    userName = models.CharField(max_length=50)
-    userPsd = models.CharField(max_length=50)
-    regDate = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.userName
-
-
 class Carousel(models.Model):
 
     """docstring for Carousel"""
-    Title = models.CharField(max_length=50)
-    Image = models.CharField(max_length=50)
-    Linkto = models.CharField(max_length=50)
-    Caption = models.CharField(max_length=500, blank=True, null=True)
+    Title = models.CharField('标题', max_length=50)
+    Image = models.FileField('图片', upload_to='NineCo/static/img/')
+    Linkto = models.CharField('链接地址（可为空）', max_length=50, blank=True)
+    Caption = models.CharField('子标题', max_length=500, blank=True, null=True)
     dimDate = models.DateTimeField(auto_now_add=True)  # timezone.now()
 
     def __str__(self):
         return self.Title
+
+    class Meta:
+        verbose_name = '轮播管理'
+        ordering = ['-dimDate']  # sorted news by dimdate
 
 
 class ClassManger(models.Manager):
@@ -40,7 +35,7 @@ class ClassManger(models.Manager):
 
 
 class Classification(models.Model):  # job class
-    name = models.CharField(max_length=25)
+    name = models.CharField('分类名', max_length=25)
 
     objects = models.Manager()
     class_list = ClassManger()
@@ -48,45 +43,61 @@ class Classification(models.Model):  # job class
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = '招聘类别'
+
 
 class GameClass (models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField('分类名', max_length=50)
 
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = '游戏类别'
+
 
 class GameInfo(models.Model):
-    name = models.CharField(max_length=50)
-    imgUrl = models.CharField(max_length=50, blank=True)
-    Url = models.CharField(max_length=100, blank=True, null=True)
-    content = models.TextField(max_length=4000, blank=True, null=True)
+    name = models.CharField('游戏名', max_length=50)
+    imgUrl = models.FileField('图片', upload_to='NineCo/static/img/')
+    Url = models.CharField('下载地址', max_length=100, blank=True, null=True)
+    content = models.TextField('详细介绍', max_length=4000, blank=True, null=True)
     gameType = models.ForeignKey(GameClass)
     dimDate = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = '游戏信息'
+        ordering = ['-dimDate']  # sorted news by dimdate
+
 
 class JobsInfo(models.Model):
-    jobTitle = models.CharField(max_length=50)  # job 's  name
-    jobDetail = models.TextField(max_length=2000)
+    jobTitle = models.CharField('职位名', max_length=50)  # job 's  name
+    jobDetail = models.TextField('职位描述', max_length=2000)
     dimDate = models.DateTimeField(auto_now_add=True)  # timezone.now()
     classification = models.ForeignKey(Classification)
-    status = models.CharField(max_length=5)  # job's status
+    status = models.CharField('职位状态', max_length=5)  # job's status
 
     def __str__(self):
         return self.jobTitle
 
+    class Meta:
+        verbose_name = '招聘信息'
+        ordering = ['-dimDate']  # sorted news by dimdate
+
 
 class News(models.Model):
-    newsTitle = models.CharField(max_length=50)
-    newsDetail = models.TextField(max_length=5000)
-    viewedTimes = models.IntegerField()  # obviously it is what it looks like.
+    newsTitle = models.CharField('新闻标题', max_length=50)
+    newsDetail = models.TextField('新闻详情', max_length=5000)
+    # obviously it is what it looks like.
+    viewedTimes = models.IntegerField('浏览次数')
     dimDate = models.DateTimeField(auto_now_add=True)  # timezone.now()
 
     def __str__(self):
         return self.newsTitle
 
     class Meta:
+        verbose_name = '文章'
         ordering = ['-dimDate']  # sorted news by dimdate
