@@ -60,7 +60,7 @@ class GameClass (models.Model):
 class GameInfo(models.Model):
     name = models.CharField('游戏名', max_length=50)
     imgUrl = models.FileField('图片', upload_to='NineCo/static/img/')
-    Url = models.CharField('下载地址', max_length=100, blank=True, null=True)
+    Url = models.FileField('上传APP',  blank=True, null=True,upload_to='NineCo/static/img/')
     content = models.TextField('详细介绍', max_length=4000, blank=True, null=True)
     gameType = models.ForeignKey(GameClass)
     dimDate = models.DateField(auto_now_add=True)
@@ -92,6 +92,7 @@ class News(models.Model):
     newsTitle = models.CharField('新闻标题', max_length=50)
     newsDetail = models.TextField('新闻详情', max_length=5000)
     # obviously it is what it looks like.
+    upLoadImg = models.FileField('上传新闻中的图片，引用图片请采用"/static/img/xxx.xx"格式', blank=True, null=True, upload_to='NineCo/static/img/')
     viewedTimes = models.IntegerField('浏览次数')
     dimDate = models.DateTimeField(auto_now_add=True)  # timezone.now()
 
