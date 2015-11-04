@@ -6,14 +6,16 @@ tinymce.init({
             //language:'zh_CN',
             plugins: [
                 "advlist autolink lists link image charmap print preview anchor sh4tinymce",
-                "searchreplace visualblocks code fullscreen",
-                "insertdatetime table contextmenu paste"
+                "searchreplace visualblocks code fullscreen textcolor colorpicker importcss ",
+                "insertdatetime table contextmenu paste visualchars media hr emoticons textpattern"
             ],
-            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter" +
-            " alignright alignjustify | bullist numlist outdent indent | preview link sh4tinymce image "
+            toolbar: "insertfile undo redo | bold italic | alignleft aligncenter" +
+            " alignright alignjustify | bullist numlist outdent indent | preview link sh4tinymce image "+
+            " hr media textcolor emoticons | forecolor backcolor importcss"
         });
 
            
            
 
 
+s
