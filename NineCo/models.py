@@ -86,7 +86,7 @@ class News(models.Model):
     dimDate = models.DateTimeField(auto_now_add=True)  # timezone.now()
 
     def __str__(self):
-        return self.sortName
+        return self.newsTitle
 
     class Meta:
         ordering = ['-dimDate']  # sorted news by dimdate
