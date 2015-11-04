@@ -1,0 +1,50 @@
+{% extends "sample.html" %}
+{% block title %}
+新闻资讯-九越互动
+{% endblock %}
+{% block head %}
+<style type="text/css">
+	.Newstitle{
+		font-size: large;
+		color:#B63053;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	.Newscontent{
+		margin-top:10px;
+		margin-bottom: 10px;
+	}
+	span a:hover{
+		color: #BD4560;
+	}
+	span a:link{
+		color: #363640;
+	}
+</style>
+{% endblock %}
+{% block content %}
+	<div class="container">
+		<div class="col-md-12">
+			<div class="col-md-2">&nbsp;</div>
+			<div class="col-md-8" style="border:1px solid #E0E0E0;margin-top:20px;">
+				<div class="Newstitle">
+						新闻资讯
+				</div>
+				<div class="Newscontent">
+					<span style="text-align:left;color:#BD4662">
+						<a href="javascript:void(0)" >这是四川企业门户网站 哈哈哈哈</a>
+					</span>
+					<span style="float:right;color:#363640;" align="right">
+						2015-9-9
+					</span>
+				</div>
+				<div>
+					<hr style=" margin-top:3px;height:2px;border:none;border-bottom:3px solid #DADADA;" />
+				</div>	
+			</div>
+			<div class="col-md-2">&nbsp;</div>
+		</div>
+	</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}
