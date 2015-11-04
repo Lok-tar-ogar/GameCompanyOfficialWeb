@@ -11,7 +11,7 @@ tinymce.init({
             ],
             toolbar: "insertfile undo redo | bold italic | alignleft aligncenter" +
             " alignright alignjustify | bullist numlist outdent indent | preview link sh4tinymce image "+
-            " hr media textcolor emoticons | forecolor backcolor importcss"
+            " hr media textcolor emoticons | forecolor backcolor | fontselect fontsizeselect cleanup"
         });
 
            
