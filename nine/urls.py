@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^games/', 'NineCo.views.gamelist'),
     url(r'^News', 'NineCo.views.NewsPage', name='news page'),
     url(r'^gameclass/', 'NineCo.views.gamecl'),
+    url(r'^game/(\d+)/$', 'NineCo.views.gamed'),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': '/static/'}),
 ]

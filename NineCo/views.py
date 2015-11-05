@@ -74,3 +74,14 @@ def NewsPage(request):
                     break
 
     return render_to_response('News.html', {'news': posts, 'allpage': allpage, 'borderpage': allpage - 3, 'pagelist': pagelist, 'curpage': curpage})
+
+
+def gamed(request, i):
+    game = GameInfo.objects.get(id=i)
+    game.imgUrl = 'img/' + game.imgUrl.split('/')[-1]
+    game.QRimg = 'img/' + game.QRimg.split('/')[-1]
+    game.Url = 'apps/' + game.Url.split('/')[-1]
+    game.imgContent1 = 'img/' + game.imgContent1.split('/')[-1]
+    game.imgContent2 = 'img/' + game.imgContent2.split('/')[-1]
+    game.imgContent3 = 'img/' + game.imgContent3.split('/')[-1]
+    return render_to_response('showgame.html', {'game': game})
