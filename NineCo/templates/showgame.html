@@ -1,0 +1,50 @@
+{% extends "sample.html" %} {% block title %}游戏详情-九越互动{% endblock%} {% block head %}
+
+ {% endblock%} {% load staticfiles %} {% block content %}
+
+    
+<div class="row" >
+    <div class="container">
+        <div class="row" style="margin-top:5px">
+            <blockquote style=" border-left:5px solid #b73053" class="col-md-11">
+                <p style="font-size:20px;color:#ff8700">游戏列表</p>
+            </blockquote>
+           
+        </div>
+        <div class="row">
+        <div class="container">
+        <ul class="nav nav-tabs" style="margin-bottom:20px" role="tablist">
+{% for c in gc %}
+{% if c.id == 1 %}
+ <li role="presentation" class="active"><a href='#{{ c.name }}' aria-controls={{ c.name }} role="tab" data-toggle="tab">{{ c.name }}</a></li>
+    {% else %}
+        <li role="presentation" class=" "><a href='#{{ c.name }}' aria-controls={{ c.name }} role="tab" data-toggle="tab">{{ c.name }}</a></li>
+        {% endif %}
+        {% endfor %}
+        </ul>
+        <div class="tab-content">
+        {% for g in gm %}
+            {% if g.gameType.id == 1 %}
+    <div role="tabpanel" class="tab-pane active" id="{{ g.gameType.name }}">
+    {% else %}
+    <div role="tabpanel" class="tab-pane" id="{{ g.gameType.name }}">
+    {% endif %}
+            <div class="col-md-2">
+                <div class="thumbnail" style="border:none">
+                <a href="{{ g.Url }}">
+                    <img style="width:150px;height:100px" src="{% static g.imgUrl %}" alt="game"></a>
+                    <div class="caption" style="position:relative;top:0 ;text-align:center">
+                        <p>{{ g.name }}</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
