@@ -14,13 +14,13 @@
 		margin-top:10px;
 		margin-bottom: 10px;
 	}
-	span a:hover{
-		color: #BD4560;
-	}
 	span a:link{
 		color: #363640;
 	}
-</style>
+	span a:hover{
+		color: #BD4560;
+	}
+	</style>
 {% endblock %}
 {% block content %}
 	<div class="container">
@@ -30,17 +30,19 @@
 				<div class="Newstitle">
 						新闻资讯
 				</div>
+				{% for new in news %}
 				<div class="Newscontent">
 					<span style="text-align:left;color:#BD4662">
-						<a href="javascript:void(0)" >这是四川企业门户网站 哈哈哈哈</a>
+						<a href="/news/{{news.id}}" >{{ new.newsTitle }}</a>
 					</span>
 					<span style="float:right;color:#363640;" align="right">
-						2015-9-9
+						{{ new.dimDate|date:"Y-m-d"}}
 					</span>
 				</div>
 				<div>
 					<hr style=" margin-top:3px;height:2px;border:none;border-bottom:3px solid #DADADA;" />
-				</div>	
+				</div>
+				{% endfor %}	
 			</div>
 			<div class="col-md-2">&nbsp;</div>
 		</div>
