@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^contact/', 'NineCo.views.contact'),
     url(r'^jobs/', 'NineCo.views.jobs'),
     url(r'^games/', 'NineCo.views.gamelist'),
-    url(r'^News/', 'NineCo.views.NewsPage', name='news page'),
+    url(r'^News', 'NineCo.views.NewsPage', name='news page'),
     url(r'^gameclass/', 'NineCo.views.gamecl'),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': '/static/'}),

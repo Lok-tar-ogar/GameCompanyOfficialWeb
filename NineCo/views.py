@@ -32,7 +32,7 @@ def gamecl(request):
     return render_to_response("allgame.html", {'gm': games, 'gc': gc})
 
 
-PageCount = 3
+PageCount = 1
 PAGERLEN = 8
 
 
@@ -67,8 +67,10 @@ def NewsPage(request):
             if len(pagelist) > PAGERLEN - 1:
                 break
     else:
-        for i in range(curpage - 1 - PAGERLEN // 2, curpage - 1 + PAGERLEN // 2 if curpage - 1 + PAGERLEN // 2 < allpage else allpage):
-            pagelist.append(i + 1)
-            if len(pagelist) > PAGERLEN - 1:
-                break
+        # if (curpage - 1 - PAGERLEN // 2 > 0):
+            for i in range(curpage - 1 - PAGERLEN // 2, curpage - 1 + PAGERLEN // 2 if curpage - 1 + PAGERLEN // 2 < allpage else allpage):
+                pagelist.append(i + 1)
+                if len(pagelist) > PAGERLEN - 1:
+                    break
+
     return render_to_response('News.html', {'news': posts, 'allpage': allpage, 'borderpage': allpage - 3, 'pagelist': pagelist, 'curpage': curpage})

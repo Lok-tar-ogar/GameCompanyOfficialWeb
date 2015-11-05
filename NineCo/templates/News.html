@@ -42,7 +42,41 @@
 				<div>
 					<hr style=" margin-top:3px;height:2px;border:none;border-bottom:3px solid #DADADA;" />
 				</div>
-				{% endfor %}	
+				{% endfor %}
+				<div>
+				<nav>
+				
+            	<ul class="pagination pagination-lg">
+            	{% ifnotequal curpage 1 %}
+            	<li>
+              	<a href="?curpage={{curpage}}&&allpage={{allpage}}&&pagetype=pageup" aria-label="Previous">
+              	<span aria-hidden="true">&laquo;</span></a>
+            	</li>
+            	{% endifnotequal %}
+				{% if curpage > 5 %}
+             		<li ><a href="?curpage=1&&allpage={{allpage}}&&pagetype=pageto" >...</a></li>
+
+            	{% endif %}
+            	{% for page in pagelist%}
+
+            		{% if page == curpage%}
+              		<li class="active"><a href="?curpage={{page}}&&allpage={{allpage}}&&pagetype=pageto" >{{ page }}</a></li>
+            		{%else%}
+            		<li><a href="?curpage={{page}}&&allpage={{allpage}}&&pagetype=pageto">{{ page }}</a>	</li>
+            		{% endif %}
+            	{% endfor %}
+            	{%if curpage <  borderpage %}
+             		<li ><a href="?curpage={{allpage}}&&allpage={{allpage}}&&pagetype=pageto" >...</a></li>
+            	{%endif%}
+            	{% ifnotequal curpage allpage %}
+            	<li>
+              	<a href="?curpage={{curpage}}&&allpage={{allpage}}&&pagetype=pagedown" aria-label="Next">
+              	<span aria-hidden="true">&raquo;</span></a>
+            	</li> 
+            	{% endifnotequal %}
+          		</ul>
+          		</nav>
+				</div>	
 			</div>
 			<div class="col-md-2">&nbsp;</div>
 		</div>
