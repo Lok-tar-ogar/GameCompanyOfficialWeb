@@ -67,8 +67,13 @@ def NewsPage(request):
             if len(pagelist) > PAGERLEN - 1:
                 break
     else:
-        # if (curpage - 1 - PAGERLEN // 2 > 0):
+        if (curpage - 1 - PAGERLEN // 2 > 0):
             for i in range(curpage - 1 - PAGERLEN // 2, curpage - 1 + PAGERLEN // 2 if curpage - 1 + PAGERLEN // 2 < allpage else allpage):
+                pagelist.append(i + 1)
+                if len(pagelist) > PAGERLEN - 1:
+                    break
+        else:
+            for i in range(0, curpage - 1 + PAGERLEN // 2 if curpage - 1 + PAGERLEN // 2 < allpage else allpage):
                 pagelist.append(i + 1)
                 if len(pagelist) > PAGERLEN - 1:
                     break
