@@ -90,3 +90,8 @@ def gamed(request, i):
     game.imgContent2 = 'img/' + game.imgContent2.split('/')[-1]
     game.imgContent3 = 'img/' + game.imgContent3.split('/')[-1]
     return render_to_response('showgame.html', {'game': game})
+
+
+def NewsDetail(request, newsid):
+    news = News.objects.get(id=newsid)
+    return render_to_response('NewsDetail.html', locals())

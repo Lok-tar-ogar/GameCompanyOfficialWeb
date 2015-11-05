@@ -26,14 +26,14 @@
 	<div class="container">
 		<div class="col-md-12">
 			<div class="col-md-2">&nbsp;</div>
-			<div class="col-md-8" style="border:1px solid #E0E0E0;margin-top:20px;">
+			<div class="col-md-8" style="border:1px solid #E0E0E0;margin-top:20px;margin-bottom:50px;">
 				<div class="Newstitle">
 						新闻资讯
 				</div>
 				{% for new in news %}
 				<div class="Newscontent">
 					<span style="text-align:left;color:#BD4662">
-						<a href="/news/{{news.id}}" >{{ new.newsTitle }}</a>
+						<a href="/news/{{new.id}}" >{{ new.newsTitle }}</a>
 					</span>
 					<span style="float:right;color:#363640;" align="right">
 						{{ new.dimDate|date:"Y-m-d"}}
@@ -45,7 +45,7 @@
 				{% endfor %}
 				<div>
 				<nav>
-				
+
             	<ul class="pagination pagination-lg">
             	{% ifnotequal curpage 1 %}
             	<li>
@@ -58,7 +58,6 @@
 
             	{% endif %}
             	{% for page in pagelist%}
-
             		{% if page == curpage%}
               		<li class="active"><a href="?curpage={{page}}&&allpage={{allpage}}&&pagetype=pageto" >{{ page }}</a></li>
             		{%else%}

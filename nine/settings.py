@@ -94,7 +94,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'zh-Hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Beijing'
 
 USE_I18N = True
 
