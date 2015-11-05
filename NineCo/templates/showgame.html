@@ -1,23 +1,67 @@
-{% extends "sample.html" %} {% block title %}游戏详情-九越互动{% endblock%} {% block head %}
-
- {% endblock%} {% load staticfiles %} {% block content %}
-
+{% extends "sample.html" %} {% block title %}游戏详情-九越互动{% endblock%} {% block head %} {% endblock%} {% load staticfiles %} {% block content %}
+<div class="row">
     
-<div class="row" >
     <div class="container">
-        <div class="row" style="margin-top:5px">
-            <blockquote style=" border-left:5px solid #b73053" class="col-md-11">
-                <p style="font-size:20px;color:#ff8700">游戏简介</p>
-            </blockquote>
-           
-        </div>
-        <div class="row">
-        <div class="container">
-        </div>
-        </div>
-    </div>
+        
+            <div class="row" style="margin-top:15px">
+                <blockquote style=" border-left:5px solid #b73053" class="col-md-11">
+                    <p style="font-size:20px;color:#ff8700">游戏详情</p>
+                </blockquote>
+            </div>
+            <div class="row">
+                <div class="container">
+                    <div class="col-md-6">
+                        <div class="col-md-6">
+                            <img class="pull-left" src="{% static game.imgUrl %}" style="width:100px;height:100px" />
+                            <p><strong>《{{ game.name }}》</strong></p>
+                            <p style="font-size:small">
+                                {{ game.gameType.name }}
+                                <br/>
+                                <span>
+                    <small>
+                    版本：{{ game.version }}<br/>
+                    时间：{{ game.dimDate }}<br/>
+                    大小：{{ game.gamesize }}<br/>
+                    </small>
+                        </span>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        
+                        <img class="pull-right"  src="{% static game.QRimg %}" style="width:100px;height:100px;margin-left:20px;" />
+                        <a style="margin-top:20px;" href="{{ game.Url }}" class="pull-right btn btn-info btn-large">下载游戏</a>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row" style="margin-top:50px">
+            <div class="container">
+            <h4><strong>游戏截图</strong></h4>
+            <br/>
+            <div class="row"><div class="col-md-1"></div> <div class="col-md-10"><img  src="{% static game.imgContent1 %}" style="width:296px;height:524px;" />
+            <img  src="{% static game.imgContent2 %}" style="width:296px;height:524px;" />
+            <img  src="{% static game.imgContent3 %}" style="width:296px;height:524px;" />
 </div>
-
-
+            <div class="col-md-1"></div>
+            </div>   
+            </div>
+            </div>
+            <div class="row" style="margin-top:15px">
+                <blockquote style=" border-left:5px solid #b73053" class="col-md-11">
+                    <p style="font-size:20px;color:#ff8700">游戏简介</p>
+                </blockquote>
+            </div>
+            <div class="row" style="margin-top:5px;margin-bottom:100px;">
+            
+                {{ game.content |safe }}
+                
+            </div>
+        
+    </div>
+    
+</div>
 {% endblock %}
-
