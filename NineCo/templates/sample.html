@@ -12,45 +12,21 @@
 	<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" src="{% static "js/jquery.mixitup.min.js" %}"></script>
+  <style type="text/css">
+    #nav .mainlevel ul {
+      position:absolute; display:none; *width:2000px;
+    }
+    #nav .mainlevel li a {padding:0 0px; line-height:20px; height:24px; display:block; _padding-bottom:15px;/*IE6 only*/}
+  </style>
 	<script type="text/javascript">
-		$(function () {
-	
-		var filterList = {
-	
-		init: function () {
-		
-			// MixItUp plugin
-			// http://mixitup.io
-			$('#portfoliolist').mixitup({
-				targetSelector: '.portfolio',
-				filterSelector: '.filter',
-				effects: ['fade'],
-				easing: 'snap',
-				// call the hover effect
-				onMixEnd: filterList.hoverEffect()
-			});				
-		
-		},
-		
-		hoverEffect: function () {
-		
-			// Simple parallax effect
-			$('#portfoliolist .portfolio').hover(
-				function () {
-					$(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
-					$(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');				
-				},
-				function () {
-					$(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
-					$(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');								
-				}		
-			);				
-		}
-	};
-	
-	// Run the show!
-	filterList.init();
-});	
+      $(function(){
+        $('li.mainlevel').mousemove(function(){
+           $(this).find('ul').slideDown("1000");//you can give it a speed
+        });
+        $('li.mainlevel').mouseleave(function(){
+           $(this).find('ul').slideUp("fast");
+        });
+      });
 	</script>
 </head>
 <body>
@@ -62,13 +38,33 @@
 		</div>
 		<span class="menu" ></span>
 		
-		<div class="navigation " >
-			<ul class="navig cl-effect-3 pull-right" >
-				<li><a href="/">首页</a></li>
-				<li><a href="/About/">关于我们</a></li>
-				<li><a href="/News/">九越咨询</a></li>
-				<li><a href="/games">游戏中心</a></li>
-				<li><a href="#">论坛</a></li>
+		<div class="navigation" >
+			<ul class="navig cl-effect-3 pull-right" id="nav" >
+				<li ><a href="/" class="mainlevel">首页</a></li>
+
+				<li class="mainlevel"><a href="/About/">关于我们</a>
+        <ul class="sub_nav_01">
+          <li><a href="#">公司简介</a></li>
+          <li><a href="#">企业目标</a></li>
+          <li><a href="#">企业文化</a></li>
+          <li><a href="#">团队介绍</a></li>
+        </ul>
+        </li>
+        
+				<li class="mainlevel"><a href="/News/">九越咨询</a>
+        <ul class="sub_nav_01">
+          <li><a href="#">公司咨询</a></li>
+          <li><a href="#">业务咨询</a></li>
+        </ul>
+        </li>
+				<li class="mainlevel"><a href="/games">游戏中心</a>
+        <ul class="sub_nav_01">
+          <li><a href="#">手游运营</a></li>
+          <li><a href="#">手游开发</a></li>
+        </ul>
+        </li>
+
+				<li><a href="#" class="mainlevel">论坛</a></li>
 			</ul>
 			<div class="clearfix"></div>
 			<script>
