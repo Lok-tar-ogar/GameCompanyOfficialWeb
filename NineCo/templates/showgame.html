@@ -1,4 +1,12 @@
-{% extends "sample.html" %} {% block title %}游戏详情-九越互动{% endblock%} {% block head %} {% endblock%} {% load staticfiles %} {% block content %}
+{% extends "sample.html" %} {% block title %}游戏详情-九越互动{% endblock%} {% block head %} 
+
+<style type="text/css">
+    #gameD img{
+    max-width:100%;
+
+
+    }
+</style>{% endblock%} {% load staticfiles %} {% block content %}
 <div class="row">
     
     <div class="container">
@@ -55,7 +63,7 @@
                     <p style="font-size:20px;color:#ff8700">游戏简介</p>
                 </blockquote>
             </div>
-            <div class="row" style="margin-top:5px;margin-bottom:100px;">
+            <div id="gameD" class="row" style="margin-top:5px;margin-bottom:100px;">
             
                 {{ game.content |safe }}
                 

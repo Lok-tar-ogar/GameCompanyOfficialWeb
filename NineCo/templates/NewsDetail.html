@@ -15,6 +15,11 @@
 		margin-top:10px;
 		margin-bottom: 10px;
 	}
+	#newsD img{
+ 	max-width:100%;
+
+
+	}
 </style>
 {% endblock %}
 {% block content %}
@@ -31,7 +36,7 @@
 				<div>
 					<hr style=" margin-top:1px;height:2px;border:none;border-bottom:1px solid #DADADA;" />
 				</div>
-				<div>
+				<div id="newsD">
 					{{news.newsDetail|safe}}
 				</div>
 
