@@ -31,8 +31,8 @@
     {% endif %}
             <div class="col-md-2">
                 <div class="thumbnail" style="border:none">
-                <a href="{{ g.Url }}">
-                    <img style="width:150px;height:100px" src="{% static g.imgUrl %}" alt="game"></a>
+                <a href="/game/{{ g.id }}/">
+                    <img style="width:100px;height:100px" src="{% static g.imgUrl %}" alt="game"></a>
                     <div class="caption" style="position:relative;top:0 ;text-align:center">
                         <p>{{ g.name }}</p>
                     </div>

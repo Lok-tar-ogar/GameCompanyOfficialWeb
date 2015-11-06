@@ -1,10 +1,15 @@
 from django.shortcuts import render
 from django.shortcuts import render_to_response
-from NineCo.models import JobsInfo, Classification, GameInfo, GameClass, News
+from NineCo.models import JobsInfo, Classification,Carousel,GameInfo, GameClass, News
 
 
 def Index(request):
-    return render_to_response("index.html")
+    games = GameInfo.objects.all().order_by('-dimDate')[0:6]
+    for i in range(0, len(games)):
+        games[i].content = games[i].content[0:20]
+    carousel = Carousel.objects.all()
+    gamelist = GameInfo.objects.all()[0:3]
+    return render_to_response("index.html", {'games': games, 'gamelist': gamelist, 'carousel': carousel})
 
 
 def summary(request):
@@ -32,7 +37,7 @@ def gamecl(request):
     return render_to_response("allgame.html", {'gm': games, 'gc': gc})
 
 
-PageCount = 1
+PageCount = 8
 PAGERLEN = 8
 
 

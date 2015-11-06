@@ -20,6 +20,7 @@
 	span a:hover{
 		color: #BD4560;
 	}
+
 	</style>
 {% endblock %}
 {% block content %}
@@ -43,10 +44,10 @@
 					<hr style=" margin-top:3px;height:2px;border:none;border-bottom:3px solid #DADADA;" />
 				</div>
 				{% endfor %}
-				<div>
+				<div class="text-center">
 				<nav>
 
-            	<ul class="pagination pagination-lg">
+            	<ul class="pagination pagination-sm">
             	{% ifnotequal curpage 1 %}
             	<li>
               	<a href="?curpage={{curpage}}&&allpage={{allpage}}&&pagetype=pageup" aria-label="Previous">

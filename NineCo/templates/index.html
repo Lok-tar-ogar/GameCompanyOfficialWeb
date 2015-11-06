@@ -1,10 +1,4 @@
-{% extends "sample.html" %} {% block title %}首页-九越互动{% endblock%} {% block head%}
-<style type="text/css">
-.caption a {
-    width: 146px;
-}
-</style>
-{% endblock%} {% load staticfiles %} {% block content %}
+{% extends "sample.html" %} {% block title %}首页-九越互动{% endblock%} {% block head%} {% endblock%} {% load staticfiles %} {% block content %}
 <div class="row">
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -14,18 +8,21 @@
         </ol>
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
+            {% for c in carousel %} {% if c.id == 1 %}
             <div class="item active">
-                <img src="{% static "img/carousel1.jpg" %}" alt="...">
+                <a href="{{ c.Linkto}}"><img width="100%" height="500px" src="{% static c.Image %}" alt="..."></a>
                 <div class="carousel-caption">
-                    这是标题
+                    {{ c.Caption}}
                 </div>
             </div>
+            {% else %}
             <div class="item">
-                <img src="{% static "img/banner.jpg" %}" alt="...">
+                <a href="{{ c.Linkto}}"><img width="100%" height="500px" src="{% static c.Image %}" alt="..."></a>
                 <div class="carousel-caption">
-                    这是标题
+                    {{ c.Caption}}
                 </div>
             </div>
+            {% endif %} {% endfor %}
         </div>
         <!-- Controls -->
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -44,37 +41,19 @@
             <blockquote style=" border-left:5px solid #b73053" class="col-md-11">
                 <p style="font-size:20px;color:#ff8700">热门游戏</p>
             </blockquote>
-            <div class="col-md-1"><a href="#" style="font-size:16px;color:#ff8700">更多&gt&gt</a></div>
+            <div class="col-md-1"><a href="/games/" style="font-size:16px;color:#ff8700">更多&gt&gt</a></div>
         </div>
         <div class="row">
+            {% for biggame in gamelist%}
             <div class="col-md-4">
                 <div class="thumbnail" style="background:#131824;border:none">
-                    <img src="{% static "img/gamecover.jpg" %}" alt="game">
+                    <a href="/game/{{ biggame.id }}/"><img width="296px" height="524px" src="{% static biggame.imgContent1 %}" alt="game"></a>
                     <div class="caption" style="position:relative;top:0">
-                        <p class="container">
-                            <a href="#" class="btn btn-primary" role="button">下载游戏</a>
-                            <a href="#" class="btn btn-primary" role="button">下载游戏</a></p>
+                        <a href="{{ biggame.Url }}" class="btn btn-primary btn-block" role="button">下载游戏</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="thumbnail" style="background:#131824;border:none">
-                    <img src="{% static "img/gamecover.jpg" %}" alt="game">
-                    <div class="caption" style="position:relative;top:0">
-                        <p class="container"><a href="#" class="btn btn-primary" role="button">下载游戏</a>
-                            <a href="#" class="btn btn-primary " role="button">下载游戏</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail" style="background:#131824;border:none">
-                    <img src="{% static "img/gamecover.jpg" %}" alt="game">
-                    <div class="caption" style="position:relative;top:0">
-                        <p class="container"><a href="#" class="btn btn-primary" role="button">下载游戏</a>
-                            <a href="#" class="btn btn-primary " role="button">下载游戏</a></p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
@@ -84,16 +63,18 @@
             <blockquote style=" border-left:5px solid #b73053" class="col-md-11">
                 <p style="font-size:20px;color:#ff8700">游戏产品</p>
             </blockquote>
-            <div class="col-md-1"><a href="#" style="font-size:16px;color:#ff8700">更多&gt&gt</a></div>
+            <div class="col-md-1"><a href="/gameclass" style="font-size:16px;color:#ff8700">更多&gt&gt</a></div>
         </div>
-        <div class="row">
-        <div class="col-md-4" style="margin-top:30px;"><div class="col-md-6"><img style="width:100px;height:100px;" class="pull-right" src="{% static "img/512.png" %}"></div><div class="col-md-6"><h4 style="color:#ff8700">灵魂战歌</h4><p>这是一个游戏，这是一个游戏，这是一个游戏，这是一个游戏，</p></div></div>
-        <div class="col-md-4" style="margin-top:30px;"><div class="col-md-6"><img style="width:100px;height:100px;" class="pull-right" src="{% static "img/512.png" %}"></div><div class="col-md-6"><h4 style="color:#ff8700">灵魂战歌</h4><p>这是一个游戏，这是一个游戏，这是一个游戏，这是一个游戏，</p></div></div>
-        <div class="col-md-4" style="margin-top:30px;"><div class="col-md-6"><img style="width:100px;height:100px;" class="pull-right" src="{% static "img/512.png" %}"></div><div class="col-md-6"><h4 style="color:#ff8700">灵魂战歌</h4><p>这是一个游戏，这是一个游戏，这是一个游戏，这是一个游戏，</p></div></div>
-        <div class="col-md-4" style="margin-top:30px;"><div class="col-md-6"><img style="width:100px;height:100px;" class="pull-right" src="{% static "img/512.png" %}"></div><div class="col-md-6"><h4 style="color:#ff8700">灵魂战歌</h4><p>这是一个游戏，这是一个游戏，这是一个游戏，这是一个游戏，</p></div></div>
-        <div class="col-md-4" style="margin-top:30px;"><div class="col-md-6"><img style="width:100px;height:100px;" class="pull-right" src="{% static "img/512.png" %}"></div><div class="col-md-6"><h4 style="color:#ff8700">灵魂战歌</h4><p>这是一个游戏，这是一个游戏，这是一个游戏，这是一个游戏，</p></div></div>
-        <div class="col-md-4" style="margin-top:30px;"><div class="col-md-6"><img style="width:100px;height:100px;" class="pull-right" src="{% static "img/512.png" %}"></div><div class="col-md-6"><h4 style="color:#ff8700">灵魂战歌</h4><p>这是一个游戏，这是一个游戏，这是一个游戏，这是一个游戏，</p></div></div>
+        <div class="row" style="padding-bottom:50px;">
+            {% for smallgame in games%}
+            <div class="col-md-4" style="margin-top:30px;">
+                <div class="col-md-6"><a href="/game/{{ smallgame.id }}/"><img style="width:100px;height:100px;" class="pull-right" src="{% static smallgame.imgUrl %}"></a></div>
+                <div class="col-md-6">
+                    <h4 style="color:#ff8700">{{ smallgame.name }}</h4>
+                    <p>{{ smallgame.content | safe }}</p>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
-</div>
-{% endblock %}
+    {% endblock %}
