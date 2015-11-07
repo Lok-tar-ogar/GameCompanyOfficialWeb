@@ -1,7 +1,7 @@
 {% extends "sample.html" %}
 
 {% block title %}
-新闻资讯-九越互动
+公司资讯-九越互动
 {% endblock %}
 {% block head %}
 <style type="text/css">
@@ -16,19 +16,22 @@
 		margin-bottom: 10px;
 	}
 	#newsD img{
- 	max-width:100%;
-
-
+ 		max-width:100%;
 	}
 </style>
 {% endblock %}
 {% block content %}
 	<div class="container">
 		<div class="col-md-12">
-			<div class="col-md-2">&nbsp;</div>
-			<div class="col-md-8" style="margin-top:20px;margin-bottom:50px;">
+			<div class="col-md-1">&nbsp;</div>
+			<div class="col-md-10">当前位置：九越资讯 / 公司资讯 / {{news.newsTitle}}</div>
+			<div class="col-md-1">&nbsp;</div>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-1">&nbsp;</div>
+			<div class="col-md-10" style="margin-top:20px;margin-bottom:50px;">
 				<div class="Newstitle">
-					{{news.newsTitle}}
+					<span>发布时间：{{news.newsTitle}}</span>
 				</div>
 				<div style="text-align:center;color:#4B4C4E">
 					{{news.dimDate |date:"Y-m-d H:i"}}
@@ -41,7 +44,7 @@
 				</div>
 
 			</div>
-			<div class="col-md-2">&nbsp;</div>
+			<div class="col-md-1">&nbsp;</div>
 		</div>
 	</div>	
 {% endblock %}

@@ -19,6 +19,7 @@ body a:hover{
 html, body{
 	font-family: 'Ubuntu', sans-serif;
 	font-size:100%;
+	height:100%;
 	background:#ffffff;
 }
 /*-- Header Part Starts Here --*/

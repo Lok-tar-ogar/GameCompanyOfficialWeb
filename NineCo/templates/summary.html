@@ -7,7 +7,6 @@
 <style type="text/css">
 	.style {
 		padding-left: 20px;
-		color: black;
 	}
 	.TriOrigin{
 		display: none;
@@ -29,6 +28,10 @@
 	.textClick{
 		display:block;
 	}
+	a:link {
+		color:#B7AC30;
+		text-decoration: none;
+	}
 	a:visited{
 		color:#B7AC30;
 		text-decoration: none;
@@ -37,10 +40,7 @@
 		color:#B7AC30;
 		text-decoration: none;
 	}
-	a:link {
-		color:#B7AC30;
-		text-decoration: none;
-	}
+
 	Astyle{
 		color:#B7AC30;
 	}
@@ -52,6 +52,14 @@
 {% block content %}
 <script type="text/javascript">
 	$(document).ready(function() {
+        (function ($) {
+            $.getUrlParam = function (name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+             }
+        })(jQuery);
+
 		$('#profile').click(function(){
 			$("profile").removeClass('AOrigin').addClass('Astyle');
 			$("#imgSummary").parent().children().removeClass('imgClick').addClass('imgOrigin');
@@ -86,6 +94,20 @@
 			$("#TriTeam").parent().children().removeClass('TriClick').addClass('TriOrigin');
 			$("#TriTeam").removeClass('TriOrigin').addClass('TriClick');				
 		});
+		 switch($.getUrlParam('action')){
+        	case 'profile':
+        		$("#profile").trigger("click");
+        		break;
+        	case 'target':
+        		$("#target").trigger("click");
+        		break;
+        	case 'culture':
+        		$("#culture").trigger("click");
+        		break;
+        	case 'teamintro':
+        		$("#Team").trigger("click");
+        		break;  
+        }
 	});
 </script>
 	<div class="container" >

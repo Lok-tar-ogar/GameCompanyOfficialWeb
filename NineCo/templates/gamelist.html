@@ -1,6 +1,7 @@
 {% extends "sample.html" %} {% block title %}游戏展示-九越互动{% endblock%} {% block head %}
 
  {% endblock%} {% load staticfiles %} {% block content %}
+<div>
 <div class="row">
     <div class="container">
         <img class="col-md-12" src="{% static "img/carousel1.jpg" %}" />
@@ -21,7 +22,7 @@
             <div class="col-md-4">
                 <div class="thumbnail" style="border:none">
                 <a href="/game/{{ g.id }}/">
-                    <img style="width:296px;height:524px" src="{% static g.imgContent1 %}" alt="game">
+                    <img style="width:296px;height:524px" src="{% static g.imgContent1 %}" alt="game"></a>
                     <div class="caption" style="position:relative;top:0 ;text-align:center">
                         <p>{{ g.name }}</p>
                     </div>
@@ -32,7 +33,7 @@
         </div>
     </div>
 </div>
-
+</div>
 
 {% endblock %}
 
