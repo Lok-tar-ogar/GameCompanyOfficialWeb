@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render_to_response
-from NineCo.models import JobsInfo, Classification,Carousel,GameInfo, GameClass, News
+from NineCo.models import JobsInfo, Classification, Carousel, GameInfo, GameClass, News
 
 
 def Index(request):
@@ -9,6 +9,7 @@ def Index(request):
         games[i].content = games[i].content[0:20]
     carousel = Carousel.objects.all()
     gamelist = GameInfo.objects.all()[0:3]
+    # news = News.objects.all().order_by('-dimDate')[0:3]
     return render_to_response("index.html", {'games': games, 'gamelist': gamelist, 'carousel': carousel})
 
 
