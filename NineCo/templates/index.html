@@ -1,5 +1,19 @@
 {% extends "sample.html" %} {% block title %}首页-九越互动{% endblock%}
-{% block head%} 
+{% block head %} 
+    <style type="text/css">
+    .Newscontent{
+        padding-top:5px;
+        padding-left: 5px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+    }
+    span a:link{
+        color: #363640;
+    }
+    span a:hover{
+        color: #BD4560;
+    }
+    </style>
 {% endblock%} 
 {% load staticfiles %} 
 {% block content %}
@@ -11,6 +25,36 @@
             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
         </ol>
         <!-- Wrapper for slides -->
+        <div class="col-lg-12" style="margin-top:-240px">
+            <div class="col-lg-1">            
+            </div>
+            <div class="col-lg-4">
+                <div style="background-color:#131824;color:snow;">
+                    <span style="margin-left:5px;">新闻资讯</span>
+                    <span style="float:right;margin-right:5px">
+                        <a href="/News/" style="color:snow;">更多&gt&gt</a>
+                    </span>
+                </div>
+                <div style="background-color:snow;">
+                    {% if news %}
+                    {% for new in news %}
+                    <div class="Newscontent">
+                    <span style="text-align:left;color:#BD4662;margin-top:25px;margin-bottom:10px;">
+                        <a href="/news/{{new.id}}" >{{ new.newsTitle }}</a>
+                    </span>
+                    <span style="float:right;color:#363640;" align="right">
+                        {{ new.dimDate|date:"m-d"}}
+                    </span>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                        <div style="margin-top:10px;margin-bottom:10px;color:#BD4662">没有相应的新闻资讯！</div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-7">
+            </div>
+        </div>
         <div class="carousel-inner" role="listbox">
             {% for c in carousel %} {% if c.id == 1 %}
             <div class="item active">
