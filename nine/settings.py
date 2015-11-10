@@ -25,7 +25,7 @@ SECRET_KEY = 'yk5hnr#9kxeridk9doq0+$)7_h@ciqxhh-i#bxlc!256=ia42-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -94,7 +94,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'zh-Hans'
 
-TIME_ZONE = 'Asia/Beijing'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
