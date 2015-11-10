@@ -10,7 +10,8 @@ https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/
 import os
 
 from django.core.wsgi import get_wsgi_application
-
+import sys
+sys.path.append('c:/apache2/nine')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "nine.settings")
 
 application = get_wsgi_application()
