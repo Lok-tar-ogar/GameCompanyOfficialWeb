@@ -17,7 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^aaaaa/', include(admin.site.urls)),#防扫描后台入口
     url(r'^$', 'NineCo.views.Index', name='home'),
     url(r'^About/$', 'NineCo.views.summary', name='About us'),
     url(r'^contact/', 'NineCo.views.contact'),
