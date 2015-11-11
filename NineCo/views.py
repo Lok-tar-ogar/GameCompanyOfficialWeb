@@ -10,7 +10,7 @@ def Index(request):
     carousel = Carousel.objects.all()
     gamelist = GameInfo.objects.all()[0:3]
     news = News.objects.all()[0:4]
-    return render_to_response("index.html", {'games': games, 'gamelist': gamelist, 'carousel': carousel})
+    return render_to_response("index.html", {'games': games, 'gamelist': gamelist, 'carousel': carousel,'news':news})
 
 
 def summary(request):
