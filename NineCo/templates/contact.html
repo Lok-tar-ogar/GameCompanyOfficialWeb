@@ -1,7 +1,16 @@
 {% extends "sample.html" %} {% block title %}联系我们-九越互动{% endblock%} {% block head %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+    body, html,#map_canvas {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+    
+    #map_canvas img {
+       max-width: none;
+    }
 
+    </style>
 
-<!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=tb19rHcaEwN5gsNwu7rLwqGD8XuS54uV"></script>-->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=M30FuGQbGLOwDOIlDU0aOXbV"></script>
  {% endblock%} {% load staticfiles %} {% block content %}
 <div class="row">
     <div class="container">
@@ -32,13 +41,12 @@
 </div><hr  />
 <div class="row">
 
-<div class="col-md-3">
+<div class="col-md-6">
     
-</div>
- <div class="col-md-3">
+
     
-<div id="allmap">
-    <img style="width:200px;height:200px" src="{% static "img/allmap.png" %}">
+<div id="map_canvas" style="height:300px;">
+    <!--<img style="width:200px;height:200px" src="{% static "img/allmap.png" %}">-->
 </div>
 
 </div>
@@ -55,9 +63,10 @@
 </div>
 </div>
 </div>
+<div class="clearfix" ></div>
 <script type="text/javascript">
     // 百度地图API功能--等上线才能实施部署百度地图api
-    var map = new BMap.Map("allmap");    // 创建Map实例
+    var map = new BMap.Map("map_canvas");    // 创建Map实例
     map.centerAndZoom(new BMap.Point(104.074944,30.543463), 20);  // 
     map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
     map.setCurrentCity("成都");          // 设置地图显示的城市 
