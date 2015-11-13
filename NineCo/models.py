@@ -75,6 +75,7 @@ class GameInfo(models.Model):
     imgContent3 = models.FileField(
         '图片介绍3', blank=True, null=True, upload_to='img/')
     gameType = models.ForeignKey(GameClass)
+    forumLink=models.CharField('游戏论坛地址', max_length=50, blank=True, default='#')
     dimDate = models.DateField(auto_now_add=True)
 
     def __str__(self):
