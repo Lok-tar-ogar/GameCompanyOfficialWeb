@@ -1,0 +1,109 @@
+{% extends "sample.html" %} {% block title %}登陆-九越互动{% endblock%} {% block head %}
+<style type="text/css">
+body {
+    background-color: #eee;
+   
+   
+}
+.minHeightContent{
+background:url('/static/img/backgroudLogin.jpg');
+background-position:center center;
+
+}
+.form-signin {
+    margin: 0 auto;
+    max-width: 330px;
+    padding: 15px;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    box-sizing: border-box;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-bottom: -1px;
+}
+
+.form-signin input[type="password"] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-bottom: 10px;
+}
+</style>
+{% endblock%} {% load staticfiles %} {% block content %}
+<div class="row" style="">
+    <div class="container">
+        <form class="form-signin" action="/login" method="Post">
+            {% csrf_token %}
+            <h2 class="form-signin-heading">登录</h2>
+            <label class="sr-only" for="inputEmail">用户名:</label>
+            <input type="text" name="username" autofocus="" required="" placeholder="用户名" class="form-control" id="user">
+            <label class="sr-only" for="inputPassword">密码</label>
+            <input type="password" name="pwd" required="" placeholder="密码" class="form-control" id="pass">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="rmbUser" checked="true"> 记住密码
+                </label>
+            </div>
+            <button type="submit" onclick="saveUserInfo()" class="btn btn-lg btn-primary btn-block">登录</button>
+            <a href="/reg" class="btn btn-lg btn-info btn-block">注册</a>
+        </form>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            if ($.cookie("rmbUser") == "true") {
+                $("#rmbUser").attr("checked", true);
+                $("#user").val($.cookie("userName"));
+                $("#pass").val($.cookie("passWord"));
+            }
+        });
+        //保存用户信息
+        function saveUserInfo() {
+            if ($("#rmbUser").attr("checked") == "checked") {
+                var userName = $("#user").val();
+                var passWord = $("#pass").val();
+                $.cookie("rmbUser", "true", {
+                    expires: 7
+                }); // 存储一个带7天期限的 cookie
+                $.cookie("userName", userName, {
+                    expires: 7
+                }); // 存储一个带7天期限的 cookie
+                $.cookie("passWord", passWord, {
+                    expires: 7
+                }); // 存储一个带7天期限的 cookie
+            } else {
+                $.cookie("rmbUser", "false", {
+                    expires: -1
+                });
+                $.cookie("userName", '', {
+                    expires: -1
+                });
+                $.cookie("passWord", '', {
+                    expires: -1
+                });
+            }
+        }
+        </script>
+    </div>
+</div>
+<!-- /container -->
+{% endblock %}
