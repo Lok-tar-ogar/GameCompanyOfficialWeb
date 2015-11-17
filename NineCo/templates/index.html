@@ -97,9 +97,9 @@
             {% for biggame in gamelist%}
             <div class="col-md-4">
                 <div class="thumbnail" style="background:#131824;border:none">
-                    <a href="/game/{{ biggame.id }}/"><img width="296px" height="524px" src="{% static biggame.imgContent1 %}" alt="game"></a>
+                    <a href="/game/{{ biggame.id }}/"><img width="296px" height="524px" src="media/{{ biggame.imgContent1 }}" alt="game"></a>
                     <div class="caption" style="position:relative;top:0">
-                        <a href="/static/{{ biggame.Url }}" class="btn btn-primary btn-block" role="button">下载游戏</a>
+                        <a href="/media/{{ biggame.Url }}" class="btn btn-primary btn-block" role="button">下载游戏</a>
                     </div>
                 </div>
             </div>
@@ -118,7 +118,7 @@
         <div class="row" style="padding-bottom:50px;">
             {% for smallgame in games%}
             <div class="col-md-4" style="margin-top:30px;">
-                <div class="col-md-6"><a href="/game/{{ smallgame.id }}/"><img style="width:100px;height:100px;" class="pull-right" src="{% static smallgame.imgUrl %}"></a></div>
+                <div class="col-md-6"><a href="/game/{{ smallgame.id }}/"><img style="width:100px;height:100px;" class="pull-right" src="/media/{{ smallgame.imgUrl }}"></a></div>
                 <div class="col-md-6">
                     <h4 style="color:#ff8700">{{ smallgame.name }}</h4>
                     <p>{{ smallgame.content | safe }}</p>
