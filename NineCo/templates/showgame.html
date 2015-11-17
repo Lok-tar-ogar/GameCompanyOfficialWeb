@@ -20,7 +20,7 @@
                 <div class="container">
                     <div class="col-md-6">
                         <div class="col-md-6">
-                            <img class="pull-left" src="/media/{{ game.imgUrl }}" style="width:100px;height:100px" />
+                            <img class="pull-left" src="{% static game.imgUrl %}" style="width:100px;height:100px" />
                             <p><strong>《{{ game.name }}》</strong></p>
                             <p style="font-size:small">
                                 {{ game.gameType.name }}
@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-md-6 ">
                         
-                        <img class="pull-right"  src="/media/{{ game.QRimg }}" style="width:100px;height:100px;margin-left:20px;" />
+                        <img class="pull-right"  src="{% static game.QRimg %}" style="width:100px;height:100px;margin-left:20px;" />
                         <div class="pull-right">
                         <a href="/static/{{ game.Url }}" class=" btn btn-info btn-large">下载游戏</a><br/>
                         <hr/>
@@ -55,9 +55,9 @@
             <br/>
             <div class="row">
             
-            <div class="col-md-1 col-xs-1"></div> <div class="col-md-10 col-xs-10"><img  src="/media/{{ game.imgContent1 }}" style="width:296px;height:524px;" />
-            <img  src="/media/{{ game.imgContent2 }}" style="width:296px;height:524px;" />
-            <img  src="/media/{{ game.imgContent3 }}" style="width:296px;height:524px;" />
+            <div class="col-md-1 col-xs-1"></div> <div class="col-md-10 col-xs-10"><img  src="{% static game.imgContent1 %}" style="width:296px;height:524px;" />
+            <img  src="{% static game.imgContent2 %}" style="width:296px;height:524px;" />
+            <img  src="{% static game.imgContent3 %}" style="width:296px;height:524px;" />
 </div>
             <div class="col-md-1 col-xs-1"></div>
             </div>   
