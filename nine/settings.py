@@ -101,7 +101,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-MEDIA_ROOT='NineCo/static/'
+MEDIA_ROOT=MEDIA_ROOT=os.path.join(
+    os.path.dirname(__file__), '../NineCo/media').replace('\\', '/')
+MEDIA_URL = '/media/'
+
 
 STATIC_URL = '/static/'
 # Static files (CSS, JavaScript, Images)

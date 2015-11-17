@@ -30,6 +30,8 @@ urlpatterns = [
     url(r'^login', 'NineCo.views.login'),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': '/static/'}),
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
+        {'document_root': '/media/'}),
     url(r'^balagw/index.html', 'NineCo.views.BalagwIndex'),
     url(r'^mvfenxiang/fenxiang.html', 'NineCo.views.fenxiang'),
     url(r'^fenxiang/fenxiang.html', 'NineCo.views.fenxiang2'),
