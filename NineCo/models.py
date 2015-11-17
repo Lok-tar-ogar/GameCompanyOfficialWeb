@@ -6,7 +6,7 @@ class Carousel(models.Model):
 
     """docstring for Carousel"""
     Title = models.CharField('标题', max_length=50)
-    Image = models.FileField('图片', upload_to='img/')
+    Image = models.FileField('图片（1920*500）', upload_to='img/')
     Linkto = models.CharField('链接地址（可为空）', max_length=50, blank=True)
     Caption = models.CharField('子标题', max_length=500, blank=True, null=True)
     dimDate = models.DateTimeField(auto_now_add=True)  # timezone.now()
@@ -59,7 +59,7 @@ class GameClass (models.Model):
 
 class GameInfo(models.Model):
     name = models.CharField('游戏名', max_length=50)
-    imgUrl = models.FileField('主要图片', upload_to='img/')
+    imgUrl = models.FileField('主要图片（100*100）', upload_to='img/')
     Url = models.FileField(
         '上传APP',  blank=True, null=True, upload_to='apps/')
     QRimg = models.FileField(
@@ -69,13 +69,12 @@ class GameInfo(models.Model):
     gamesize = models.CharField(
         '游戏大小', max_length=50, blank=True, default='30MB')
     imgContent1 = models.FileField(
-        '图片介绍1', blank=True, null=True, upload_to='img/')
+        '图片介绍1（用于展示在首页和游戏列表的图,296*524）', blank=True, null=True, upload_to='img/')
     imgContent2 = models.FileField(
-        '图片介绍2', blank=True, null=True, upload_to='img/')
+        '图片介绍2（同上）', blank=True, null=True, upload_to='img/')
     imgContent3 = models.FileField(
         '图片介绍3', blank=True, null=True, upload_to='img/')
     gameType = models.ForeignKey(GameClass)
-    forumLink=models.CharField('游戏论坛地址', max_length=50, blank=True, default='#')
     dimDate = models.DateField(auto_now_add=True)
 
     def __str__(self):

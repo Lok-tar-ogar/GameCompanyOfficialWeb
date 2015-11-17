@@ -4,6 +4,7 @@ from NineCo.models import JobsInfo, Classification, Carousel, GameInfo, GameClas
 #import urllib
 from django.http import HttpResponse, HttpResponseRedirect
 
+
 def Index(request):
     games = GameInfo.objects.all().order_by('-dimDate')[0:6]
     for i in range(0, len(games)):
@@ -11,7 +12,7 @@ def Index(request):
     carousel = Carousel.objects.all()
     gamelist = GameInfo.objects.all()[0:3]
     news = News.objects.all()[0:4]
-    return render_to_response("index.html", {'games': games, 'gamelist': gamelist, 'carousel': carousel,'news':news})
+    return render_to_response("index.html", {'games': games, 'gamelist': gamelist, 'carousel': carousel, 'news': news})
 
 
 def summary(request):
@@ -97,18 +98,19 @@ def NewsDetail(request, newsid):
     news = News.objects.get(id=newsid)
     return render_to_response('NewsDetail.html', locals())
 
+
 def login(request):
     if request.method == "POST":
         uf = request.POST
-        usrname=uf.get('username')
+        usrname = uf.get('username')
         pwd = uf.get('pwd')
-        url = "http://123.59.24.94:9999"  
-        #postdata = urllib.parse.urlencode({'username': username, 'pwd': pwd)  
-        #postdata = postdata.encode('utf-8')  
-  
-        #res = urllib.request.urlopen(url,postdata) 日吗怎么发post请求啊
-        
-        if(res=='1'):
+        url = "http://123.59.24.94:9999"
+        # postdata = urllib.parse.urlencode({'username': username, 'pwd': pwd)
+        #postdata = postdata.encode('utf-8')
+
+        # res = urllib.request.urlopen(url,postdata) 日吗怎么发post请求啊
+
+        if(res == '1'):
             request.session['username'] = usrname
 
             return HttpResponseRedirect('/')
@@ -117,3 +119,27 @@ def login(request):
             return HttpResponseRedirect('/login/')
     else:
         return render(request, 'login.html')
+
+
+def BalagwIndex(request):
+    return render_to_response('balagwindex.html')
+
+
+def fenxiang(request):
+    return render_to_response('fenxiang.html')
+
+
+def fenxiang2(request):
+    return render_to_response('fenxiang2.html')
+
+
+def bbindex(request):
+    return render_to_response('bbindex.html')
+
+
+def balala2fx(request):
+    return render_to_response('balala2fxindex.html')
+
+
+def h5fenindex(request):
+    return render_to_response('h5fenindex.html')

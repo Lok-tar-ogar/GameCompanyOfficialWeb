@@ -69,6 +69,7 @@
                     {% for new in news %}
                     <div class="Newscontent">
                     <span style="text-align:left;color:#BD4662;margin-top:25px;margin-bottom:10px;">
+                    <img src="{% static "img/redTriangle.png" %}" >
                         <a href="/news/{{new.id}}" >{{ new.newsTitle }}</a>
                     </span>
                     <span style="float:right;color:#363640;" align="right">
