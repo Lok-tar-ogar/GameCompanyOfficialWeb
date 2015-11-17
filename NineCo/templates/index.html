@@ -54,10 +54,10 @@
         </a>
     </div>
 </div>
- <div class="col-lg-12" style="margin-top:-200px">
-            <div class="col-lg-1">            
-            </div>
-            <div class="col-lg-4">
+<div class="container" >
+        <div class="col-lg-12 col-xs-12 " style="margin-top:-200px">
+            
+            <div class="col-lg-4 col-xs-4">
                 <div style="background-color:#131824;color:snow;">
                     <span style="margin-left:5px;">新闻资讯</span>
                     <span style="float:right;margin-right:5px">
@@ -81,16 +81,16 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="col-lg-7">
+            <div class="col-lg-8 col-xs-8">
             </div>
-        </div>
+        </div></div>
 <div class="row" style="background:#131824">
     <div class="container">
         <div class="row" style="margin-top:5px">
-            <blockquote style=" border-left:5px solid #b73053" class="col-md-11">
+            <blockquote style=" border-left:5px solid #b73053" class="col-md-6 col-xs-6">
                 <p style="font-size:20px;color:#ff8700">热门游戏</p>
             </blockquote>
-            <div class="col-md-1"><a href="/games/" style="font-size:16px;color:#ff8700">更多&gt&gt</a></div>
+            <div class="col-md-6 col-xs-6 "><a href="/games/" class="pull-right" style="font-size:16px;color:#ff8700">更多&gt&gt</a></div>
         </div>
         <div class="row">
             {% for biggame in gamelist%}
@@ -109,10 +109,10 @@
 <div class="row">
     <div class="container">
         <div class="row" style="margin-top:5px">
-            <blockquote style=" border-left:5px solid #b73053" class="col-md-11">
+            <blockquote style=" border-left:5px solid #b73053" class="col-md-6 col-xs-6">
                 <p style="font-size:20px;color:#ff8700">游戏产品</p>
             </blockquote>
-            <div class="col-md-1"><a href="/gameclass" style="font-size:16px;color:#ff8700">更多&gt&gt</a></div>
+            <div class="col-md-6 col-xs-6"><a class="pull-right" href="/gameclass" style="font-size:16px;color:#ff8700">更多&gt&gt</a></div>
         </div>
         <div class="row" style="padding-bottom:50px;">
             {% for smallgame in games%}
@@ -125,5 +125,8 @@
             </div>
             {% endfor %}
         </div>
+        </div>
     </div>
+    
+
     {% endblock %}
