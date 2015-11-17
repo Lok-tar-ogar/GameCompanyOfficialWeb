@@ -105,7 +105,7 @@ class News(models.Model):
     newsDetail = models.TextField('新闻详情', max_length=5000)
     # obviously it is what it looks like.
     upLoadImg = models.FileField(
-        '上传新闻中的图片，引用图片请采用"/media/img/xxx.xx"格式', blank=True, null=True, upload_to='img/')
+        '上传新闻中的图片，引用图片请采用"/static/img/xxx.xx"格式', blank=True, null=True, upload_to='img/')
     viewedTimes = models.IntegerField('浏览次数')
     dimDate = models.DateTimeField(auto_now_add=True)  # timezone.now()
 
