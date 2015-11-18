@@ -4,6 +4,7 @@
 <head>
     {% load staticfiles %}
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
     {% block head %} {% endblock%}
     <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}" />
@@ -32,15 +33,36 @@
     .minHeightContent {
         min-height: 81%;
     }
+    .son{
+    display: none;
+
+    }
+
+.nav-top {
+    background: url('/static/img/loginbtn.jpg') no-repeat;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    right:20%;
+    text-align: center;
+    width: 140px;
+}
+
+
+
     </style>
     <script type="text/javascript">
     $(function() {
-        $('li.mainlevel').mousemove(function() {
+        $('li.mainlevel').mouseenter(function() {
+            $('ul.son').each(function  fun(i,item){
+                $(item).css('display','none');
+            })
             $(this).find('ul').slideDown("1000"); //you can give it a speed
         });
-        $('li.mainlevel').mouseleave(function() {
-            $(this).find('ul').slideUp("fast");
-        });
+        //$('li.mainlevel').mouseleave(function() {
+         //   $(this).find('ul').slideUp("fast");
+        //});
     });
     </script>
 </head>
@@ -53,10 +75,17 @@
             </div>
             <span class="menu"></span>
             <div class="navigation" style="font-family:Microsoft YaHei;">
+            <h4 class="nav-top">
+            
+      <a  href="/login/" class="btn btn-xs btn-link" style="color:black;margin-right:10px;">登陆</a>
+      
+      <a  href="/reg/" class="btn btn-xs btn-link" style="color:black;margin-right:40px;">注册</a>
+
+      </h4>
                 <ul class="navig cl-effect-3 pull-right" id="nav">
                     <li><a href="/" class="mainlevel">首页</a></li>
                     <li class="mainlevel"><a href="/About/">关于我们</a>
-                        <ul>
+                        <ul class="son" style="display:block">
                             <li><a href="/About/?action=profile"><small>公司简介</small></a></li>
                             <li><a href="/About/?action=target"><small>企业目标</small></a></li>
                             <li><a href="/About/?action=culture"><small>企业文化</small></a></li>
@@ -64,23 +93,24 @@
                         </ul>
                     </li>
                     <li class="mainlevel"><a href="/News/">九越资讯</a>
-                        <ul>
+                        <ul class="son">
                             <li><a href="/News"><small>公司资讯</small></a></li>
                             <li><a href="/News"><small>业务资讯</small></a></li>
                         </ul>
                     </li>
                     <li class="mainlevel"><a href="/games">游戏中心</a>
-                        <ul>
+                        <ul class="son">
                             <li><a href="/games"><small>手游运营</small></a></li>
                             <li><a href="/gameclass"><small>手游开发</small></a></li>
                         </ul>
                     </li>
                     <li class="mainlevel"><a href="/jobs/" >加入我们</a>
-                        <ul>
+                        <ul class="son">
                             <li><a href="/jobs"><small>招聘信息</small></a></li>
                             <li><a href="/contact"><small>联系我们</small></a></li>
                         </ul>
                     </li>
+
                 </ul>
                 <div class="clearfix"></div>
                 <script>

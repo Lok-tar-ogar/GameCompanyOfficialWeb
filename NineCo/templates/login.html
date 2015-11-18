@@ -52,7 +52,7 @@ background-position:center center;
 </style>
 {% endblock%} {% load staticfiles %} {% block content %}
 <div class="row" style="">
-    <div class="container">
+    <div class="container" style="padding-top:100px;">
         <form class="form-signin" action="/login" method="Post">
             {% csrf_token %}
             <h2 class="form-signin-heading">登录</h2>
