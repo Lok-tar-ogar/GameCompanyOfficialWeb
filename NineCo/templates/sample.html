@@ -34,7 +34,7 @@
         min-height: 81%;
     }
     .son{
-    display: none;
+    
 
     }
 
@@ -54,12 +54,13 @@
     </style>
     <script type="text/javascript">
     $(function() {
-        $('li.mainlevel').mouseenter(function() {
+        $('.mainlevel').mouseenter(function() {
             $('ul.son').each(function  fun(i,item){
-                $(item).css('display','none');
+                $(item).css('display','');
             })
-            $(this).find('ul').slideDown("1000"); //you can give it a speed
+            $(this).find('ul').slideDown("3000"); //you can give it a speed
         });
+        
         //$('li.mainlevel').mouseleave(function() {
          //   $(this).find('ul').slideUp("fast");
         //});
@@ -105,7 +106,7 @@
                         </ul>
                     </li>
                     <li class="mainlevel"><a href="/jobs/" >加入我们</a>
-                        <ul class="son">
+                        <ul class="son" style="margin-left:-100px;">
                             <li><a href="/jobs"><small>招聘信息</small></a></li>
                             <li><a href="/contact"><small>联系我们</small></a></li>
                         </ul>
