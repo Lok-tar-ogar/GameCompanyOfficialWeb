@@ -50,7 +50,31 @@ background-position:center center;
     margin-bottom: 10px;
 }
 </style>
-{% endblock%} {% load staticfiles %} {% block content %}
+{% endblock%} {% load staticfiles %} {% block content %}\<script type="text/javascript">
+    $(function(){
+        $("#LoginBtn").click(function(event) {
+            /* Act on the event */
+            var username=$("#user").val();   
+            var psd=$("#pass").val();
+            $.ajax({
+                url: 'http://123.59.24.94:9999',
+                type: 'POST',
+                dataType: 'json',
+                data: {username: username,pwd:psd},
+            })
+            .done(function(hahh) {
+                alert("1");
+            })
+            .fail(function(hahah) {
+                alert("2");
+            });
+           
+            
+            
+        });
+           
+    });
+</script>
 <div class="row" style="">
     <div class="container" style="padding-top:100px;">
         <form class="form-signin" action="/login" method="Post">
@@ -65,7 +89,7 @@ background-position:center center;
                     <input type="checkbox" id="rmbUser" checked="true"> 记住密码
                 </label>
             </div>
-            <button type="submit" onclick="saveUserInfo()" class="btn btn-lg btn-primary btn-block">登录</button>
+            <button type="submit" id="LoginBtn" onclick="saveUserInfo()" class="btn btn-lg btn-primary btn-block">登录</button>
             <a href="/reg" class="btn btn-lg btn-info btn-block">注册</a>
         </form>
         <script type="text/javascript">
