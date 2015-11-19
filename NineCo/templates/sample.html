@@ -54,11 +54,13 @@
     </style>
     <script type="text/javascript">
     $(function() {
-        $('.mainlevel').mouseenter(function() {
+        $('.mainlevel').mouseenter(function(event) {
+            
             $('ul.son').each(function  fun(i,item){
                 $(item).css('display','');
             })
-            $(this).find('ul').slideDown("3000"); //you can give it a speed
+            $(this).find('ul').css('display','block'); //you can give it a speed
+            event.stopPropagation();
         });
         
         //$('li.mainlevel').mouseleave(function() {
