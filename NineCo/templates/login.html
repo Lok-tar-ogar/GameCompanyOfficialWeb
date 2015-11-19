@@ -131,8 +131,12 @@ body {
                 'username': userName,
                 'pwd': passWord
             }, function(data) {
-                if (data == 1) $.POST('/login',{'state':'1','csrf_token':{% csrf_token %}});
-                else alert('0');
+                if (data == 1) $.POST('/login', {
+                    'username': userName,
+                    'state':'1'
+                    'csrfmiddlewaretoken': getCookie('csrftoken')
+                });
+                else alert('密码错误');
             })
         };
         </script>
