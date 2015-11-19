@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^gameclass/', 'NineCo.views.gamecl'),
     url(r'^game/(\d+)/$', 'NineCo.views.gamed'),
     url(r'^login', 'NineCo.views.login'),
+    url(r'^logout', 'NineCo.views.logout'),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': '/static/'}),
     url(r'^balagw/index.html', 'NineCo.views.BalagwIndex'),

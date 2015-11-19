@@ -12,11 +12,11 @@ def Index(request):
     carousel = Carousel.objects.all()
     gamelist = GameInfo.objects.all()[0:3]
     news = News.objects.all()[0:4]
-    return render_to_response("index.html", {'games': games, 'gamelist': gamelist, 'carousel': carousel, 'news': news})
+    return render(request,"index.html", {'games': games, 'gamelist': gamelist, 'carousel': carousel, 'news': news})
 
 
 def summary(request):
-    return render_to_response("summary.html")
+    return render(request,"summary.html")
 
 
 def contact(request):
@@ -26,18 +26,18 @@ def contact(request):
 def jobs(request):
     jobsinfos = JobsInfo.objects.all().order_by('-dimDate')
     classifications = Classification.objects.all()
-    return render_to_response("jobs.html", {'jb': jobsinfos, 'cl': classifications})
+    return render(request,"jobs.html", {'jb': jobsinfos, 'cl': classifications})
 
 
 def gamelist(request):
     games = GameInfo.objects.all().order_by('-dimDate')
-    return render_to_response("gamelist.html", {'gm': games})
+    return render(request,"gamelist.html", {'gm': games})
 
 
 def gamecl(request):
     games = GameInfo.objects.all().order_by('-dimDate')
     gc = GameClass.objects.all()
-    return render_to_response("allgame.html", {'gm': games, 'gc': gc})
+    return render(request,"allgame.html", {'gm': games, 'gc': gc})
 
 
 PageCount = 8
@@ -86,40 +86,36 @@ def NewsPage(request):
                 if len(pagelist) > PAGERLEN - 1:
                     break
 
-    return render_to_response('News.html', {'news': posts, 'allpage': allpage, 'borderpage': allpage - 3, 'pagelist': pagelist, 'curpage': curpage})
+    return render(request,'News.html', {'news': posts, 'allpage': allpage, 'borderpage': allpage - 3, 'pagelist': pagelist, 'curpage': curpage})
 
 
 def gamed(request, i):
     game = GameInfo.objects.get(id=i)
-    return render_to_response('showgame.html', {'game': game})
+    return render(request,'showgame.html', {'game': game})
 
 
 def NewsDetail(request, newsid):
     news = News.objects.get(id=newsid)
-    return render_to_response('NewsDetail.html', locals())
+    return render(request,'NewsDetail.html', locals())
 
 
 def login(request):
     if request.method == "POST":
         uf = request.POST
         usrname = uf.get('username')
-        pwd = uf.get('pwd')
-        url = "http://123.59.24.94:9999"
-        # postdata = urllib.parse.urlencode({'username': username, 'pwd': pwd)
-        #postdata = postdata.encode('utf-8')
-
-        # res = urllib.request.urlopen(url,postdata) 日吗怎么发post请求啊
-
-        if(res == '1'):
+        if(uf.get('state') == '1'):
             request.session['username'] = usrname
-
             return HttpResponseRedirect('/')
-        else:
-            # return HttpResponse(md5('password'.encode('byte')))
-            return HttpResponseRedirect('/login/')
-    else:
-        return render(request, 'login.html')
 
+    else:
+        if('username' not in request.session):
+            return render(request, 'login.html')
+        else:
+            return HttpResponseRedirect('/')
+
+def logout(request):
+    del request.session['username']
+    return HttpResponseRedirect('/')
 
 def BalagwIndex(request):
     return render_to_response('balagwindex.html')

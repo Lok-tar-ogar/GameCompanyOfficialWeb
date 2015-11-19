@@ -131,10 +131,10 @@ body {
                 'username': userName,
                 'pwd': passWord
             }, function(data) {
-                if (data == 1) $.POST('/login', {
+                if (data == 1) $.post('/login', {
                     'username': userName,
-                    'state':'1'
-                    'csrfmiddlewaretoken': getCookie('csrftoken')
+                    'state':'1',
+                    'csrfmiddlewaretoken': $.cookie('csrftoken')
                 });
                 else alert('密码错误');
             })
