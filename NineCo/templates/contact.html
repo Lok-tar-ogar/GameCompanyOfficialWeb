@@ -14,9 +14,66 @@ html,
 #map_canvas img {
     max-width: none;
 }
+    .TriOrigin{
+        display: none;
+    }
+    .TriClick{
+        display:block;
+    }
+    .imgOrigin{
+        width:100%;
+        display: none;
+    }
+    .imgClick{
+        width:100%;
+        display:block;
+    }
+    .textOrigin{
+        display:none;
+    }
+    .textClick{
+        display:block;
+    }
+    a:link {
+        color:#B7AC30;
+        text-decoration: none;
+    }
+    a:visited{
+        color:#B7AC30;
+        text-decoration: none;
+    }
+    a:hover{
+        color:#B7AC30;
+        text-decoration: none;
+    }
+    .Astyle{
+        color:#B7AC30;
+    }
+    .AOrigin{
+        color:#fff;
+    }
 </style>
+
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=M30FuGQbGLOwDOIlDU0aOXbV"></script>
 {% endblock%} {% load staticfiles %} {% block content %}
+<script type="text/javascript">
+    $(function(){
+        $("#Aclick").click(function() {
+            //$("#Aclick").removeClass('AOrigin').addClass('Astyle');
+            $("#imgA").removeClass('TriOrigin').addClass('TriClick');
+            $("#imgB").removeClass('TriClick').addClass('TriOrigin');
+            $("#textA").removeClass('textOrigin').addClass('textClick');
+            $("#textB").removeClass('textClick').addClass('textOrigin');
+        });
+        $("#Bclick").click(function() {
+            //$("Bclick").removeClass('AOrigin').addClass('Astyle');
+            $("#imgB").removeClass('TriOrigin').addClass('TriClick');
+            $("#imgA").removeClass('TriClick').addClass('TriOrigin');
+            $("#textB").removeClass('textOrigin').addClass('textClick');
+            $("#textA").removeClass('textClick').addClass('textOrigin');
+        });
+    });
+</script>
 <div class="row">
     <div class="container">
         <img width="100%" src="{% static "img/partner.jpg" %}" />
@@ -28,28 +85,37 @@ html,
             <div class="col-md-3">
             </div>
             <div class="col-md-6">
-                <div class="row" style="
-  font-family: " Microsoft YaHei ";
- 
-  line-height: 0.75;
-">
-                    <div class="col-md-6 text-center">商务合作</div>
-                    <div class="col-md-6 text-center">战略合作</div>
+                <div class="row" style="font-family: " Microsoft YaHei ";line-height: 0.75;">
+                <div class="col-md-6 text-center"><a href="javascript:void(0)" id="Aclick">商务合作</a></div>
+                <div class="col-md-6 text-center"><a href="javascript:void(0)" id="Bclick" class="AOrigin">战略合作</a></div>
                     <hr/>
                 </div>
             </div>
             <div class="col-md-3"></div>
         </div>
-        <div class="row">
+        <div class="col-md-12" style="text-align:center;"><hr style="margin-top:-13px;height:2px;border:none;border-bottom:3px solid #DADADA;"/></div>
+        <div class="col-md-12" style="margin-top:-20px;">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="col-md-6" style="margin:auto;text-align:center;">
+                <img id="imgA" src="{% static "img/Redup.png" %}" style="margin:0 auto;" ></div>
+                <div class="col-md-6" style="text-align:center;"><img id="imgB" src="{% static "img/Redup.png" %}" class="TriOrigin" style="margin:0 auto;" ></div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+      
+        <div class="row" style="font-family:Microsoft Yahei;margim-bottom:20px;" id="textA" >
             <div class="col-md-3"></div>
             <div class="col-md-3 text-left">
+                <br/>
                 <p>商务联系人
                     <br/> 杨蕾 渠道部总监
                     <br/> QQ/微信：809017782
                     <br/> E-mail：yanglei@9key.net
                 </p>
             </div>
-            <div class="col-md-6 text-left">
+            <div class="col-md-6 text-left" style="margin-left:0px;">
+                <br/>
                 <p>九越游戏风向标 <br/>产品：发行命脉，收有趣的“好“游戏
                     <br/> IP：收现象级IP,开拓纵向深入的合作模式
                     <br/> 泛娱乐：游戏横向相关产业拓展，寻求行业多元化出路
@@ -57,14 +123,17 @@ html,
             </div>
         </div>
     
-    <hr />
-    <div class="row">
+    
+    <div class="row textOrigin" style="margin-bottom:20px;" id="textB">
         <div class="col-md-6">
             <div id="map_canvas" style="height:300px;">
                 <!--<img style="width:200px;height:200px" src="{% static "img/allmap.png" %}">-->
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3" style="margin-left:30px;">
+            <br/>
+            <br/>
+            <br/>
             <p>地址：成都市高新区天府软件园E6区1118室</p>
             <p>邮编：610041</p>
             <p>客服电话：028-65783167</p>
