@@ -1,26 +1,21 @@
 from django.shortcuts import render
 from django.shortcuts import render_to_response
 from NineCo.models import JobsInfo, Classification, Carousel, GameInfo, GameClass, News
-import urllib
 from django.http import HttpResponse, HttpResponseRedirect
-
+import base64
 
 def Index(request):
-    # url = "http://123.59.24.94:8093/login"  
-    # postdata = urllib.parse.urlencode({'userName': '123', 'pwd': '123'})  
-    # postdata = postdata.encode('utf-8')  
-    # f = urllib.request.urlopen(url,postdata) 
     games = GameInfo.objects.all().order_by('-dimDate')[0:6]
     for i in range(0, len(games)):
         games[i].content = games[i].content[0:20]
     carousel = Carousel.objects.all()
     gamelist = GameInfo.objects.all()[0:3]
     news = News.objects.all()[0:4]
-    return render(request, "index.html", locals())
+    return render_to_response("index.html", {'games': games, 'gamelist': gamelist, 'carousel': carousel, 'news': news})
 
 
 def summary(request):
-    return render(request, "summary.html")
+    return render_to_response("summary.html")
 
 
 def contact(request):
@@ -30,18 +25,18 @@ def contact(request):
 def jobs(request):
     jobsinfos = JobsInfo.objects.all().order_by('-dimDate')
     classifications = Classification.objects.all()
-    return render(request, "jobs.html", {'jb': jobsinfos, 'cl': classifications})
+    return render_to_response("jobs.html", {'jb': jobsinfos, 'cl': classifications})
 
 
 def gamelist(request):
     games = GameInfo.objects.all().order_by('-dimDate')
-    return render(request, "gamelist.html", {'gm': games})
+    return render_to_response("gamelist.html", {'gm': games})
 
 
 def gamecl(request):
     games = GameInfo.objects.all().order_by('-dimDate')
     gc = GameClass.objects.all()
-    return render(request, "allgame.html", {'gm': games, 'gc': gc})
+    return render_to_response("allgame.html", {'gm': games, 'gc': gc})
 
 
 PageCount = 8
@@ -90,37 +85,33 @@ def NewsPage(request):
                 if len(pagelist) > PAGERLEN - 1:
                     break
 
-    return render(request, 'News.html', {'news': posts, 'allpage': allpage, 'borderpage': allpage - 3, 'pagelist': pagelist, 'curpage': curpage})
+    return render_to_response('News.html', {'news': posts, 'allpage': allpage, 'borderpage': allpage - 3, 'pagelist': pagelist, 'curpage': curpage})
 
 
 def gamed(request, i):
     game = GameInfo.objects.get(id=i)
-    return render(request, 'showgame.html', {'game': game})
+    return render_to_response('showgame.html', {'game': game})
 
 
 def NewsDetail(request, newsid):
     news = News.objects.get(id=newsid)
-    return render(request, 'NewsDetail.html', locals())
+    return render_to_response('NewsDetail.html', locals())
 
 
 def login(request):
     if request.method == "POST":
         uf = request.POST
-        usrname = uf.get('username')
-        if(uf.get('state') == '1'):
-            request.session['username'] = usrname
-            return HttpResponseRedirect('/')
+        psd = uf.get('pwd').encode('utf-8')
+        username = uf.get('username').encode('utf-8')
+        signOrigin = (username+psd+'fna21nca~d.andsa').encode('utf-8')
+        sign = base64.b64encode(signOrigin)
 
-    else:
-        if('username' not in request.session):
-            return render(request, 'login.html')
-        else:
-            return HttpResponseRedirect('/')
+        #后台调用ajax方法有点难啊 想法前台嵌套Ajax可否？
+    return render(request, 'login.html')
 
 
-def logout(request):
-    del request.session['username']
-    return HttpResponseRedirect('/')
+def regist(request):
+    return render_to_response('regist.html')
 
 
 def BalagwIndex(request):
