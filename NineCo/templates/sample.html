@@ -85,9 +85,9 @@
       
             <a  href="/logout/" class="btn btn-xs btn-link" style="color:black;margin-right:40px;">注销</a>
             {% else %}
-      <a  href="/login/" class="btn btn-xs btn-link" style="color:black;margin-right:10px;">登陆</a>
+      <a  href="/login/" class="btn btn-xs btn-link" style="color:black;margin-right:10px;"><b>登陆</b></a>
       
-      <a  href="/reg/" class="btn btn-xs btn-link" style="color:black;margin-right:40px;">注册</a>
+      <a  href="/reg/" class="btn btn-xs btn-link" style="color:black;margin-right:40px;"><b>注册</b></a>
 {% endif %}
       </h4>
                 <ul class="navig cl-effect-3 pull-right" id="nav">
@@ -139,30 +139,32 @@
     </div>
     <footer class="footer" style="background:#131824;padding-bottom:10px;padding-top:5px;font-family:Microsoft YaHei;bottom:0px;">
         <div class="container">
-            <div class="col-lg-12">
-                <div class="col-lg-2">&nbsp;</div>
-                <div class="col-lg-4">
-                    <img src="{% static "img/FooterLogo.png" %}">
+            <div class="col-lg-12 col-xs-12">
+                <div class="col-lg-2 col-xs-2">&nbsp;</div>
+                <div class="col-lg-4 col-xs-4">
+                    <br/>
+                    <img src="{% static "img/Flogo.png" %}">
+                    <br/>
                     <p><i>Powered By Arnold0824</i> & <i>Dawsonrose</i></p>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-5 col-xs-5 text-left">
                     <br/>
-                    <p style="color:snow;">成都九越互动科技有限公司</p>
-                    <p>
-                        <a href="/About/" style="color:snow;">关于九越互动 </a>
+                    <p style="color:#777A7F;margin-bottom:3px;margin-left:3px;" >成都九越互动科技有限公司</p>
+                    <p style="margin-left:3px;">
+                        <a href="/About/" style="color:#777A7F;">关于九越互动 </a>
                         <label style="margin-left:3px;margin-right:3px;">|</label>
-                        <a href="/jobs/" style="color:snow;">加入九越互动 </a>
+                        <a href="/jobs/" style="color:#777A7F;">加入九越互动 </a>
                         <label style="margin-left:3px;margin-right:3px;">|</label>
-                        <a href="/404/" style="color:snow;">九越用户中心 </a>
+                        <a href="/404/" style="color:#777A7F;">九越用户中心 </a>
                         <label style="margin-left:3px;margin-right:3px;">|</label>
-                        <a href="/contact/" style="color:snow;">联系我们  </a>
+                        <a href="/contact/" style="color:#777A7F;">联系我们</a>
                     </p>
-                    <p>
-                        <a target="_blank" href="http://www.miibeian.gov.cn/" style="color:snow;">蜀ICP备11008151号</a>
+                    <p style="margin-bottom:3px;margin-left:3px;">
+                        <a target="_blank" href="http://www.miibeian.gov.cn/" style="color:#777A7F;">蜀ICP备11008151号</a>
                     </p>
                     <p>Copyright © 1998 - 2015 Nine Key. All Rights Reserved</p>
                 </div>
-                <div class="col-lg-1"></div>
+                <div class="col-lg-1 col-xs-1"></div>
             </div>
         </div>
     </footer>

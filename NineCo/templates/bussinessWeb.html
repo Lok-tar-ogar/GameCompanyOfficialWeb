@@ -1,0 +1,29 @@
+{% extends 'sample.html' %}
+{% block title %}
+业务咨询-九越互动
+{% endblock %}
+{% block head %}
+<style type="text/css">
+	.bus{
+		width:100%;
+		border:1px solid #BDBDBD;
+	}
+</style>
+{% endblock %}
+{% block content %}
+<div class="container">
+	<div class="col-xs-2 col-lg-2">
+	</div>
+	<div class="col-xs-8 col-lg-8">
+		{% if bus %}
+			<div>
+				<div><img src=""></div>
+				<div>&nbsp;&nbsp;&nbsp;</div>
+			</div>
+
+		{% endif %}
+	</div>
+	<div class="col-xs-2 col-lg-2">
+	</div>
+</div>
+{% endblock %}
