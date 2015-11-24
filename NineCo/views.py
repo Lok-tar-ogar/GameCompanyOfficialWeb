@@ -5,11 +5,12 @@ import urllib
 from django.http import HttpResponse, HttpResponseRedirect
 import base64
 
+
 def Index(request):
-    # url = "http://123.59.24.94:8093/login"  
-    # postdata = urllib.parse.urlencode({'userName': '123', 'pwd': '123'})  
-    # postdata = postdata.encode('utf-8')  
-    # f = urllib.request.urlopen(url,postdata) 
+    # url = "http://123.59.24.94:8093/login"
+    # postdata = urllib.parse.urlencode({'userName': '123', 'pwd': '123'})
+    # postdata = postdata.encode('utf-8')
+    # f = urllib.request.urlopen(url,postdata)
     games = GameInfo.objects.all().order_by('-dimDate')[0:6]
     for i in range(0, len(games)):
         games[i].content = games[i].content[0:20]
@@ -121,6 +122,10 @@ def login(request):
 def logout(request):
     del request.session['username']
     return HttpResponseRedirect('/')
+
+
+def regist(request):
+    return render(request, 'regist.html')
 
 
 def BalagwIndex(request):
