@@ -77,6 +77,18 @@ body {
 </script>
 <div class="row" style="">
     <div class="container" style="padding-top:100px;">
+    
+<script type="text/javascript">
+
+
+    $(function(){
+        if({{ info }}){$('#Modal').modal('show');}
+
+
+    });
+
+
+</script>
         <form class="form-signin" action="/login/" method="POST">
             {% csrf_token %}
             <h2 class="form-signin-heading">登录</h2>
@@ -93,6 +105,24 @@ body {
             <button type="submit" id="LoginBtn" onclick="saveUserInfo()" class="btn btn-lg btn-primary btn-block">登录</button>
             <a href="/reg" class="btn btn-lg btn-info btn-block">注册</a>
         </form>
+        <div id='Modal' class="modal fade">
+  <div  class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">登陆出错</h4>
+      </div>
+      <div class="modal-body">
+        <p>用户名或者密码错误&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+
+</div>
         <script type="text/javascript">
         $(document).ready(function() {
             if ($.cookie("rmbUser") == "true") {

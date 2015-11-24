@@ -131,7 +131,8 @@ def login(request):
             request.session['username'] = username
             return HttpResponseRedirect('/')
         else:
-            return render(request, 'login.html')
+
+            return render(request, 'login.html',{'info':'1'})
 
     else:
         if('username' not in request.session):
