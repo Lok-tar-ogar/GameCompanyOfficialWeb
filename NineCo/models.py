@@ -69,12 +69,15 @@ class GameInfo(models.Model):
     gamesize = models.CharField(
         '游戏大小', max_length=50, blank=True, default='30MB')
     imgContent1 = models.FileField(
-        '图片介绍1（用于展示在首页和游戏列表的图,296*524）', blank=True, null=True, upload_to='img/')
+        '图片介绍1（296*524）', blank=True, null=True, upload_to='img/')
     imgContent2 = models.FileField(
         '图片介绍2（同上）', blank=True, null=True, upload_to='img/')
     imgContent3 = models.FileField(
         '图片介绍3', blank=True, null=True, upload_to='img/')
+    imgShow= models.FileField(
+        '游戏中心展示（用于展示在首页和游戏列表的图）', blank=True, null=True, upload_to='img/')
     gameType = models.ForeignKey(GameClass)
+
     dimDate = models.DateField(auto_now_add=True)
 
     def __str__(self):
@@ -115,3 +118,22 @@ class News(models.Model):
     class Meta:
         verbose_name = '文章'
         ordering = ['-dimDate']  # sorted news by dimdate
+class NewsOfBus(models.Model):
+    newsTitle = models.CharField('业务标题', max_length=50)
+    newsDetail = models.TextField('业务详情', max_length=5000)
+    # obviously it is what it looks like.
+    imgShow = models.FileField(
+        '展示业务咨询页面的图片', blank=True, null=True, upload_to='img/')
+   
+    upLoadImg = models.FileField(
+        '上传新闻中的图片，引用图片请采用"/static/img/xxx.xx"格式', blank=True, null=True, upload_to='img/')
+    viewedTimes = models.IntegerField('浏览次数')
+    dimDate = models.DateTimeField(auto_now_add=True)  # timezone.now()
+
+    def __str__(self):
+        return self.newsTitle
+
+    class Meta:
+        verbose_name = '文章'
+        ordering = ['-dimDate']  # sorted news by dimdate
+
