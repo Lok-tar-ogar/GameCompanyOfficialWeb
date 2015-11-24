@@ -22,7 +22,7 @@ def Index(request):
     games = GameInfo.objects.all().order_by('-dimDate')[0:6]
     for i in range(0, len(games)):
         games[i].content = games[i].content[0:20]
-    carousel = Carousel.objects.all()
+    carousel = Carousel.objects.all()[::-1]
     gamelist = GameInfo.objects.all()[0:3]
     news = News.objects.all()[0:4]
     return render(request, "index.html", locals())
