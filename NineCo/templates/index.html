@@ -22,9 +22,14 @@
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        {% for c in carousel %}
+        {% if c.id == 1 %}
+            <li data-target="#carousel-example-generic" data-slide-to="{{ c.id|add:-1 }}" class="active"></li>
+            {% else %}
+            <li data-target="#carousel-example-generic" data-slide-to="{{ c.id|add:-1 }}"></li>
+            {% endif %} {% endfor %}
         </ol>
+        
         <!-- Wrapper for slides -->
        
         <div class="carousel-inner" role="listbox">
@@ -60,7 +65,7 @@
             
             <div class="col-lg-5 col-xs-5">
                 <div style="background-color:#131824;color:snow;">
-                    <span style="margin-left:5px;">新闻资讯</span>
+                    <span style="margin-left:5px;font-style:bold;">新闻资讯</span>
                     <span style="float:right;margin-right:5px">
                         <a href="/News/" style="color:snow;">更多&gt&gt</a>
                     </span>
