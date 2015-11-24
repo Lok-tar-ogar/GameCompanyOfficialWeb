@@ -17,40 +17,38 @@
 			<p style="font-family:Microsoft YaHei"><strong>快速注册账号</strong></p>
 			<p><small style="color:#DADADA">注册信息将判断账号归属的重要依据。建议您谨慎填写。</small></p>
 			<div id="regPanel" style="border:1px solid #E0E0E0;margin-top:20px;margin-bottom:50px;border-radius:10px;">
-				<div style="width:70%;margin-top:30px;margin:10px auto;" class="">
-					<label style="font-family:Microsoft YaHei;" class="control-label"><strong>账号:</strong></label>
-					<label class="sr-only" for="inputEmail">账号:</label>
+				<div style="width:70%;margin-top:30px;margin:10px auto;" class="form-group">
+					<label for="inputEmail">账号:</label>
             		<input type="text"  name="username" autofocus="" required="" placeholder="账号" class="form-control" id="user" >
             	</div>
-				<div style="width:70%;margin-top:30px;margin:10px auto;">
-					<label style="font-family:Microsoft YaHei;"><strong>密码:</strong></label>
-					<label class="sr-only" for="inputEmail">密码:</label>
+				<div style="width:70%;margin-top:30px;margin:10px auto;" class="form-group">
+					<label for="inputEmail">密码:</label>
             		<input type="password"  name="psd" autofocus="" required="" placeholder="密码" class="form-control" id="psd" >
             	</div>
-            	<div style="width:70%;margin-top:30px;margin:10px auto;">
+            	<div style="width:70%;margin-top:30px;margin:10px auto;" class="form-group">
 					<label style="font-family:Microsoft YaHei;"><strong>确认密码:</strong></label>
 					<label class="sr-only" for="inputEmail">确认密码:</label>
             		<input type="password"  name="Cpsd" autofocus="" required="" placeholder="确认密码" class="form-control" id="Cpsd" >
             	</div>
-            	<div style="width:70%;margin-top:30px;margin:10px auto;">
+            	<div style="width:70%;margin-top:30px;margin:10px auto;" class="form-group">
 					<label style="font-family:Microsoft YaHei;"><strong>E-mail:</strong></label>
 					<label class="sr-only" for="inputEmail">E-mail:</label>
             		<input type="text"  name="mail" autofocus="" required="" placeholder="E-mail" class="form-control" id="mail" >
             	</div>
-            	<div style="width:70%;margin-top:30px;margin:10px auto;">
+            	<div style="width:70%;margin-top:30px;margin:10px auto;" class="form-group">
 					<label style="font-family:Microsoft YaHei;"><strong>真实姓名:</strong></label>
 					<label class="sr-only" for="inputEmail">真实姓名:</label>
             		<input type="text"  name="Rname" autofocus="" required="" placeholder="真实姓名" class="form-control" id="Rname" >
             	</div>
-            	<div style="width:70%;margin-top:30px;margin:10px auto;">
-					<label style="font-family:Microsoft YaHei;"><strong>身份证号:</strong></label>
-					<label class="sr-only" for="inputEmail">身份证号:</label>
+            	<div style="width:70%;margin-top:30px;margin:10px auto;" class="form-group">
+					<label  for="inputEmail">身份证号:</label>
             		<input type="text"  name="idcard" autofocus="" required="" placeholder="身份证号" class="form-control" id="idcard" >
             	</div>
-            	<div style="width:70%;margin-top:30px;margin:10px auto;">
-					<label style="font-family:Microsoft YaHei;"><strong>验证码:</strong></label>
-					<label class="sr-only" for="inputEmail">验证码:</label>
-            		<input type="text"  name="vcode" autofocus="" required="" placeholder="验证码" class="form-control" id="vcode" >
+            	<div style="width:70%;margin-top:30px;margin:10px auto;" class="form-group">
+					<label for="vcode">验证码:</label>
+					<div class="input-group">
+            			<input type="text"  name="vcode" autofocus="" required=""  placeholder="验证码" class="form-control" id="vcode" >
+            			<div class="input-group-addon">validate code</div>
             	</div>
             	<div style="width:70%;margin-top:30px;margin:10px auto;">
             		<button type="submit" id="RegBtn"  class="btn btn-lg btn-primary btn-block">同意以下协议并完成注册</button>
