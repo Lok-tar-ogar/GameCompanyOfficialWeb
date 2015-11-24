@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response
 from NineCo.models import JobsInfo, Classification, Carousel, GameInfo, GameClass, News
 import urllib
 from django.http import HttpResponse, HttpResponseRedirect
-
+import base64
 
 def Index(request):
     # url = "http://123.59.24.94:8093/login"  
