@@ -1,9 +1,17 @@
 from django.shortcuts import render
 from django.shortcuts import render_to_response
 from NineCo.models import JobsInfo, Classification, Carousel, GameInfo, GameClass, News
-import urllib
+from django.core import serializers
 from django.http import HttpResponse, HttpResponseRedirect
 import base64
+from pyDes import *
+import urllib.parse
+import urllib
+import sys
+import http.cookiejar
+import json
+
+
 
 
 def Index(request):
@@ -102,15 +110,28 @@ def gamed(request, i):
 def NewsDetail(request, newsid):
     news = News.objects.get(id=newsid)
     return render(request, 'NewsDetail.html', locals())
-
+def sign(s):#签名加密方式
+    k = des("MV03ND.f", ECB, "\0\0\0\0\0\0\0\0",
+                pad=None, padmode=PAD_PKCS5)
+    return base64.b64encode(k.encrypt(s))
+def post(url, data):#封装post方法
+    return urllib.request.urlopen(url, urllib.parse.urlencode(data).encode('utf-8')).read()
 
 def login(request):
     if request.method == "POST":
         uf = request.POST
-        usrname = uf.get('username')
-        if(uf.get('state') == '1'):
-            request.session['username'] = usrname
+        username = uf.get('username')
+        pwd = uf.get('pwd')
+        d=sign(username+pwd)
+        data = {'userName': username, 'pwd': pwd, 'sign': d}
+        callbackData = {}#返回数据        
+        callbackData = json.loads(
+            str(post('http://123.59.24.94:8093/login', data), encoding="utf-8"))
+        if(callbackData['code'] == 1):
+            request.session['username'] = username
             return HttpResponseRedirect('/')
+        else:
+            return render(request, 'login.html')
 
     else:
         if('username' not in request.session):

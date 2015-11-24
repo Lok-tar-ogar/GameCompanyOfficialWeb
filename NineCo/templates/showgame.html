@@ -12,15 +12,15 @@
     <div class="container">
         
             <div class="row" style="margin-top:15px">
-                <blockquote style=" border-left:5px solid #b73053" class="col-md-11">
+                <blockquote style=" border-left:5px solid #b73053" class="col-xs-11">
                     <p style="font-size:20px;color:#ff8700">游戏详情</p>
                 </blockquote>
             </div>
             <div class="row">
                 <div class="container">
-                    <div class="col-md-6">
-                        <div class="col-md-6">
-                            <img class="pull-left" src="{% static game.imgUrl %}" style="width:100px;height:100px" />
+                    <div class="col-xs-6">
+                        <div class="col-xs-9">
+                            <img class="pull-left" src="{% static game.imgUrl %}" style="width:120px;height:120px" />
                             <p><strong>《{{ game.name }}》</strong></p>
                             <p style="font-size:small">
                                 {{ game.gameType.name }}
@@ -34,17 +34,17 @@
                         </span>
                             </p>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-xs-3">
 
                         </div>
                     </div>
-                    <div class="col-md-6 ">
+                    <div class="col-xs-6 ">
                         
-                        <img class="pull-right"  src="{% static game.QRimg %}" style="width:100px;height:100px;margin-left:20px;" />
+                        <img class="pull-right"   src="{% static game.QRimg %}" style="width:120px;height:120px;margin-left:20px;" />
                         <div class="pull-right">
-                        <a href="/static/{{ game.Url }}" class=" btn btn-info btn-large">下载游戏</a><br/>
-                        <hr/>
-                        <a  href="{{ game.forumLink }}" class=" btn btn-info btn-large">查看论坛</a></div>
+                        <a href="/static/{{ game.Url }}" ><img class="pull-right"  src="{% static "img/btnDOWN.jpg" %}" style="width:160px;height:50px;margin-left:20px;" /></a><br/>
+                        
+                        <a  href="{{ game.forumLink }}" ><img class="pull-right"  src="{% static "img/btnBBS.jpg" %}" style="width:160px;height:50px;margin-left:20px;margin-top:20px;" /></a></div>
                     </div>
                 </div>
             </div>
@@ -55,16 +55,17 @@
             <br/>
             <div class="row">
             
-             <div class="col-md-12 col-xs-12"><img  src="{% static game.imgContent1 %}" style="width:296px;height:524px;" />
-            <img  src="{% static game.imgContent2 %}" style="width:296px;height:524px;" />
-            <img  src="{% static game.imgContent3 %}" style="width:296px;height:524px;" />
+             <div class="col-xs-12 col-xs-12">
+             <img  src="{% static game.imgContent1 %}" style="width:296px;height:524px;margin-left:10px;" />
+            <img  src="{% static game.imgContent2 %}" style="width:296px;height:524px;margin-left:25px;" />
+            <img  src="{% static game.imgContent3 %}" style="width:296px;height:524px;margin-left:25px;" />
 </div>
             
             </div>   
             </div>
             </div>
             <div class="row" style="margin-top:15px">
-                <blockquote style=" border-left:5px solid #b73053" class="col-md-11">
+                <blockquote style=" border-left:5px solid #b73053" class="col-xs-11">
                     <p style="font-size:20px;color:#ff8700">游戏简介</p>
                 </blockquote>
             </div>
