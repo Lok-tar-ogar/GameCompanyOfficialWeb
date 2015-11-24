@@ -59,11 +59,11 @@ class GameClass (models.Model):
 
 class GameInfo(models.Model):
     name = models.CharField('游戏名', max_length=50)
-    imgUrl = models.FileField('主要图片（100*100）', upload_to='img/')
+    imgUrl = models.FileField('主要图片（120*120）', upload_to='img/')
     Url = models.FileField(
         '上传APP',  blank=True, null=True, upload_to='apps/')
     QRimg = models.FileField(
-        '上传二维码图片',  blank=True, null=True, upload_to='img/')
+        '上传二维码图片（120*120）',  blank=True, null=True, upload_to='img/')
     content = models.TextField('详细介绍', max_length=4000, blank=True, null=True)
     version = models.CharField('游戏版本', max_length=50, blank=True, default='#')
     gamesize = models.CharField(
