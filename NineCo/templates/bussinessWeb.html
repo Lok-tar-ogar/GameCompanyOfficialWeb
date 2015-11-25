@@ -2,6 +2,7 @@
 {% block title %}
 业务咨询-九越互动
 {% endblock %}
+{% load staticfiles %}
 {% block head %}
 <style type="text/css">
 	.bus{
@@ -12,18 +13,49 @@
 {% endblock %}
 {% block content %}
 <div class="container">
-	<div class="col-xs-2 col-lg-2">
-	</div>
-	<div class="col-xs-8 col-lg-8">
-		{% if bus %}
-			<div>
-				<div><img src=""></div>
-				<div>&nbsp;&nbsp;&nbsp;</div>
-			</div>
+<div class="col-xs-12 col-lg-12">
+	<div class="col-xs-12 col-lg-12">
+	{% for p in bnews %}
+		<div style="margin-top:10px;margin-bottom:10px;" class="bus">
+			<div><img src="{% static  p.imgShow %}" alt="业务咨询" style="width:100%"></div>
+			<div style="color:#5A5B62;font-family:KaiTi;margin-top:3px;letter-spacing:2px;">&nbsp;&nbsp;&nbsp;&nbsp;{{ p.newsDetail }}</div>
+		</div>
+	{% endfor %}
+<div class="text-center">
+				<nav>
 
-		{% endif %}
+            	<ul class="pagination pagination-sm">
+            	{% ifnotequal curpage 1 %}
+            	<li>
+              	<a href="?curpage={{curpage}}&&allpage={{allpage}}&&pagetype=pageup" aria-label="Previous">
+              	<span aria-hidden="true">&laquo;</span></a>
+            	</li>
+            	{% endifnotequal %}
+				{% if curpage > 5 %}
+             		<li ><a href="?curpage=1&&allpage={{allpage}}&&pagetype=pageto" >...</a></li>
+
+            	{% endif %}
+            	{% for page in pagelist%}
+            		{% if page == curpage%}
+              		<li class="active"><a href="?curpage={{page}}&&allpage={{allpage}}&&pagetype=pageto" >{{ page }}</a></li>
+            		{%else%}
+            		<li><a href="?curpage={{page}}&&allpage={{allpage}}&&pagetype=pageto">{{ page }}</a>	</li>
+            		{% endif %}
+            	{% endfor %}
+            	{%if curpage <  borderpage %}
+             		<li ><a href="?curpage={{allpage}}&&allpage={{allpage}}&&pagetype=pageto" >...</a></li>
+            	{%endif%}
+            	{% ifnotequal curpage allpage %}
+            	<li>
+              	<a href="?curpage={{curpage}}&&allpage={{allpage}}&&pagetype=pagedown" aria-label="Next">
+              	<span aria-hidden="true">&raquo;</span></a>
+            	</li> 
+            	{% endifnotequal %}
+          		</ul>
+          		</nav>
+				</div>					
 	</div>
-	<div class="col-xs-2 col-lg-2">
+
 	</div>
 </div>
 {% endblock %}

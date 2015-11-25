@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render_to_response
-from NineCo.models import JobsInfo, Classification, Carousel, GameInfo, GameClass, News
+from NineCo.models import JobsInfo, Classification, Carousel, GameInfo, GameClass, News ,NewsOfBus
 from django.core import serializers
 from django.http import HttpResponse, HttpResponseRedirect
 import base64
@@ -147,7 +147,59 @@ def logout(request):
 
 
 def regist(request):
+    
     return render(request, 'regist.html')
+
+BPageCount = 3
+BPAGERLEN = 8
+
+def NewsOfB(request):
+    try:
+        curpage = int(request.GET.get('curpage', '1'))
+        allpage = int(request.GET.get('allpage', '1'))
+        pagetype = str(request.GET.get('pagetype', ''))
+    except ValueError:
+        curpage = 1
+        allpage = 1
+        pagetype = 1
+    if pagetype == 'pagedown':
+        curpage += 1
+    elif pagetype == 'pageup':
+        curpage -= 1
+    elif pagetype == 'pageto':
+        pass
+    startpos = (curpage - 1) * BPageCount
+    endpos = startpos + BPageCount
+    bnews = NewsOfBus.objects.all()[startpos:endpos]
+    if curpage == 1 and allpage == 1:
+        allNewsCount = NewsOfBus.objects.count()
+        allpage = allNewsCount // BPageCount
+        remainPost = allNewsCount % BPageCount
+        if remainPost > 0:
+            allpage += 1
+    pagelist = []  # below are the logic of pagination
+    if(allpage - curpage > BPAGERLEN - 2):
+        for i in range(curpage - 1 - BPAGERLEN // 2 if curpage - 1 - BPAGERLEN // 2 > 0 else 0, curpage - 1 + BPAGERLEN // 2):
+            pagelist.append(i + 1)
+            if len(pagelist) > BPAGERLEN - 1:
+                break
+    else:
+        if (curpage - 1 - BPAGERLEN // 2 > 0):
+            for i in range(curpage - 1 - BPAGERLEN // 2, curpage - 1 + BPAGERLEN // 2 if curpage - 1 + BPAGERLEN // 2 < allpage else allpage):
+                pagelist.append(i + 1)
+                if len(pagelist) > BPAGERLEN - 1:
+                    break
+        else:
+            for i in range(0, curpage - 1 + BPAGERLEN // 2 if curpage - 1 + BPAGERLEN // 2 < allpage else allpage):
+                pagelist.append(i + 1)
+                if len(pagelist) > BPAGERLEN - 1:
+                    break
+
+    return render(request,'bussinessWeb.html',{'bnews': bnews, 'allpage': allpage, 'borderpage': allpage - 3, 'pagelist': pagelist, 'curpage': curpage})
+
+
+def gameCenter(request):
+    return render(request,'GameCenter.html',locals())
 
 
 def BalagwIndex(request):

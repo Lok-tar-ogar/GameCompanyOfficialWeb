@@ -17,7 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^aaaaa/', include(admin.site.urls)),#防扫描后台入口
+    url(r'^aaaaa/', include(admin.site.urls)),  # 防扫描后台入口
     url(r'^$', 'NineCo.views.Index', name='home'),
     url(r'^About/$', 'NineCo.views.summary', name='About us'),
     url(r'^contact/', 'NineCo.views.contact'),
@@ -30,6 +30,8 @@ urlpatterns = [
     url(r'^login', 'NineCo.views.login'),
     url(r'^logout', 'NineCo.views.logout'),
     url(r'^reg', 'NineCo.views.regist'),
+    url(r'^NewsOfBus', 'NineCo.views.NewsOfB'),
+    url(r'^gamecenter', 'NineCo.views.gameCenter'),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': '/static/'}),
     url(r'^balagw/index.html', 'NineCo.views.BalagwIndex'),
@@ -38,4 +40,4 @@ urlpatterns = [
     url(r'^bb/index.html', 'NineCo.views.bbindex'),
     url(r'^balala2fx/index.html', 'NineCo.views.balala2fx'),
     url(r'^h5fen/index.html', 'NineCo.views.h5fenindex'),
-]#加上集合tomcat的静态页面
+]  # 加上集合tomcat的静态页面
