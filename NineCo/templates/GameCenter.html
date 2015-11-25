@@ -5,25 +5,84 @@
 {% load staticfiles %}
 {% block head %}
 <style type="text/css">
-
+	.TriOrigin{
+        display: none;
+    }
+    .TriClick{
+        display:block;
+    }
+    .textOrigin{
+        display:none;
+    }
+    .textClick{
+        display:block;
+    }
+    a:link {
+        color:#31B746;
+        text-decoration: none;
+    }
+    a:visited{
+        color:#31B746;
+        text-decoration: none;
+    }
+    a:hover{
+        color:#31B746;
+        text-decoration: none;
+    }
+    .Astyle{
+        color:#31B746;
+    }
+    .AOrigin{
+        color:#fff;
+    }
 </style>
 {% endblock %}
 {% block content %}
 <div class="container">
+	<script type="text/javascript">
+		$(function(){
+			$("#AOperation").click(function() {
+				$("#imgOperation").removeClass('TriOrigin').addClass('TriClick');
+            	$("#imgDevelop").removeClass('TriClick').addClass('TriOrigin');
+            	$("#textOperation").removeClass('textOrigin').addClass('textClick');
+            	$("#textDevelop").removeClass('textClick').addClass('textOrigin');
+			});
+			$("#ADevelop").click(function() {
+				$("#imgDevelop").removeClass('TriOrigin').addClass('TriClick');
+            	$("#imgOperation").removeClass('TriClick').addClass('TriOrigin');
+            	$("#textDevelop").removeClass('textOrigin').addClass('textClick');
+            	$("#textOperation").removeClass('textClick').addClass('textOrigin');
+			});
+		});
+	</script>
 	<div class="col-lg-12" style="margin-top:10px;">
 		<blockquote style="border-left:5px solid #3171B8">
             <p style="font-size:20px;color:#484D51">游戏中心</p>
         </blockquote>
 	</div>
 	<div class="col-lg-12">
-		<div class="col-lg-6" style="text-align:right ">
-			<a href="javascript:void(0)">手游运营</a>
+		<div class="col-lg-6" style="text-align:right">
+			<a href="javascript:void(0)" id ="AOperation">手游运营</a>
        	</div>
        	<div class="col-lg-6">
-       		<a href="javascript:void(0)">手游开发</a>
+       		<a href="javascript:void(0)" id="ADevelop">手游开发</a>
        	</div>
        	<div class="col-lg-12">
        		<hr style="border:1px solid #31B746;margin-top:0px;"/>
+       	</div>
+       	<div class="col-lg-12" style="margin-top:-17px;">
+       		<div class="col-lg-6" style="text-align:right;">
+				<img src="{% static "img/GreenTri.png" %}" id="imgOperation" class="TriClick" style="margin:0 0 0 auto;">&nbsp;
+       		</div>
+       		<div class="col-lg-6">
+       			<img src="{% static "img/GreenTri.png" %}" id="imgDevelop" class="TriOrigin">&nbsp;
+       		</div>
+       	</div>
+       	<div class="col-lg-12 textClick" id="textOperation">
+			1
+       	</div>
+       	<div class="col-lg-12 textOrigin" id="textDevelop">
+       		2
        	</div>
     </div>
 </div>
