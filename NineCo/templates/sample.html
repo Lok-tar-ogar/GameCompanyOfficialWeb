@@ -35,10 +35,17 @@
         min-height: 81%;
     }
     .son{
-    
+        
 
     }
 
+.blackUnderWear{
+     background:black;
+     width: 100%;
+     position: absolute;
+    top: 90px;
+    height: 35px;
+}
 .nav-top {
     background: url('/static/img/loginbtn.jpg') no-repeat;
     height: 20px;
@@ -63,7 +70,10 @@
             $(this).find('ul').css('display','block'); //you can give it a speed
             event.stopPropagation();
         });
-        
+        //  $('ul.son li').mouseenter(function(event) {
+        //     $(this).css('background','#131824');
+            
+        // });
         //$('li.mainlevel').mouseleave(function() {
          //   $(this).find('ul').slideUp("fast");
         //});
@@ -73,9 +83,11 @@
 
 <body>
     <div class="header" style="background:#131824;">
+<div class="blackUnderWear"></div>
         <div class="container">
-            <div class="logo" style="margin-top:10px">
-                <a href="/"><img src="{% static "img/FooterLogo.png" %}" alt=""></a>
+        
+            <div class="logo" style="margin-top:-5px">
+                <a href="/"><img src="{% static "img/headerlogo.png" %}" alt=""></a>
             </div>
             <span class="menu"></span>
             <div class="navigation" style="font-family:Microsoft YaHei;">
@@ -90,6 +102,7 @@
       <a  href="/reg/" class="btn btn-xs btn-link" style="color:black;margin-right:40px;"><b>注册</b></a>
 {% endif %}
       </h4>
+      
                 <ul class="navig cl-effect-3 pull-right" id="nav">
                     <li><a href="/" class="mainlevel">首页</a></li>
                     <li class="mainlevel"><a href="/About/">关于我们</a>
