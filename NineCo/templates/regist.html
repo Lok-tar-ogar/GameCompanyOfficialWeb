@@ -6,6 +6,24 @@
     <div class="col-mid-12 col-lg-12 col-xs-12" style="margin-top:30px;">
         <div class="col-mid-2 col-lg-2 col-xs-2">
         </div>
+       <div id='Modal' class="modal fade">
+    	<div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">尚未开放</h4>
+            </div>
+            <div class="modal-body">
+                <p>敬请期待&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    		</div>
+		</div>
+
         <div class="col-mid-8 col-lg-8 col-xs-8">
             <p style="font-family:Microsoft YaHei"><strong>快速注册账号</strong></p>
             <p><small style="color:#DADADA">注册信息将判断账号归属的重要依据。建议您谨慎填写。</small></p>
@@ -40,11 +58,11 @@
                 <div style="width:70%;margin-top:30px;margin:10px auto;" class="form-group">
                     <label for="vcode">验证码:</label>
                     <div class="input-group">
-                        <input type="text" name="vcode" autofocus="" required="" placeholder="验证码" class="form-control" id="vcode">
+                        <input type="text" name="vcode" autofocus=""  required="" placeholder="验证码" class="form-control" id="vcode">
                         <div class="input-group-addon">validate code</div>
                     </div>
                     <div style="width:70%;margin-top:30px;margin:10px auto;" class="form-group">
-                        <button type="submit" id="RegBtn" class="btn btn-lg btn-primary btn-block">同意以下协议并完成注册</button>
+                        <button type="submit" id="RegBtn" class="btn btn-lg btn-primary btn-block" onclick="$('#Modal').modal('show')">同意以下协议并完成注册</button>
                     </div>
                     <div style="width:100%;margin-top:30px;margin:10px auto;" class="form-group">
                         <a href="#">《九越互动注册协议》</a>

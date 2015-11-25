@@ -13,6 +13,11 @@
     span a:hover{
         color: #BD4560;
     }
+    .btn-outline-inverse:hover {
+    background-color: transparent;
+    border-color: #d9534f;
+    color: #d9534f;
+}
     </style>
 {% endblock%} 
 {% load staticfiles %} 
@@ -106,15 +111,36 @@
             {% for biggame in gamelist%}
             <div class="col-md-4">
                 <div class="thumbnail" style="background:#131824;border:none">
-                    <a href="/game/{{ biggame.id }}/"><img width="296px" height="524px" src="{% static biggame.imgContent1 %}" alt="game"></a>
+                    <a href="/game/{{ biggame.id }}/"><img style="width:300px;height:200px;" src="{% static biggame.imgShow %}" alt="game"></a>
                     <div class="caption" style="position:relative;top:0">
-                        <a href="/static/{{ biggame.Url }}" class="btn btn-primary btn-block" role="button">下载游戏</a>
+                        <a href="/static/{{ biggame.Url }}" class="btn btn-outline-inverse" style="background-color: transparent;
+    border-color: #cdbfe3;width:130px;
+    color: #fff;" role="button">下载游戏</a>
+    <a href="{{ biggame.forumLink }}" class="btn btn-outline-inverse" style="background-color: transparent;width:130px;
+    border-color: #cdbfe3;
+    color: #fff;" role="button">游戏官网</a>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
     </div>
+    <script type="text/javascript">
+$(function  () {
+   $('.btn-outline-inverse').hover(function() {
+       $(this).css({
+       "border-color": "#d9534f",
+    "color": "#d9534f"
+   });
+   }, function() {
+       $(this).css({
+       "border-color": "#cdbfe3",
+    "color": "#fff"
+   });/* Stuff to do when the mouse leaves the element */
+   });
+});
+
+    </script>
 </div>
 <div class="row" style="margin-left: 0px;
     margin-right: 0px;">
