@@ -3,6 +3,7 @@
 业务咨询-游戏中心
 {% endblock %}
 {% load staticfiles %}
+{% load poll_extra %}
 {% block head %}
 <style type="text/css">
 	.TriOrigin{
@@ -41,6 +42,13 @@
 <div class="container">
 	<script type="text/javascript">
 		$(function(){
+      (function ($) {
+            $.getUrlParam = function (name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+             }
+        })(jQuery);
 			$("#AOperation").click(function() {
 				$("#imgOperation").removeClass('TriOrigin').addClass('TriClick');
             	$("#imgDevelop").removeClass('TriClick').addClass('TriOrigin');
@@ -53,6 +61,25 @@
             	$("#textDevelop").removeClass('textOrigin').addClass('textClick');
             	$("#textOperation").removeClass('textClick').addClass('textOrigin');
 			});
+      $('.btn-outline-inverse').hover(function() {
+          $(this).css({
+            "border-color": "#d9534f",
+            "color": "#d9534f"
+          });
+        }, function() {
+            $(this).css({
+              "border-color":"#cdbfe3",
+              "color": "#fff"
+        });/* Stuff to do when the mouse leaves the element */
+      });
+       switch($.getUrlParam('action')){
+          case 'operation':
+            $("#AOperation").trigger("click");
+            break;
+          case 'develop':
+            $("#ADevelop").trigger("click");
+            break;
+        }
 		});
 	</script>
 	<div class="col-lg-12" style="margin-top:10px;">
@@ -79,10 +106,92 @@
        		</div>
        	</div>
        	<div class="col-lg-12 textClick" id="textOperation">
-			1
-       	</div>
+        <div class="col-lg-12">
+				{% for biggame in gamelist%}
+
+					<div class="col-lg-4">
+						<div class="thumbnail" style="background:#fff;border:1px solid #DDE3E9;">
+                <div class="view view-first">
+                    <a href="/game/{{ biggame.id }}/"><img style="width:100%;height:120px;" src="{% static biggame.imgShow %}" alt="game"></a>
+                    <div class="mask">
+                        <a href="/static/{{ biggame.Url }}" class="info" style="letter-spacing:2px"><b>下载游戏</b></a>
+                    </div>
+                </div>
+                <div class="caption" style="position:relative;top:0">
+                    <img class="pull-left" src="{% static biggame.imgUrl %}" style="width:50px;height:50px;">
+                    {% autoescape off %}
+                    <span style="color:#A2A2A4" class="text-right"><small>{{ biggame.content |shorterArt:20 }}</small></span>
+                    {% endautoescape %}
+                </div>
+            </div>
+					</div>
+
+				{% endfor %}
+        </div>
+        <div class="text-center">
+        <nav>
+              <ul class="pagination pagination-sm">
+              {% ifnotequal curpage 1 %}
+              <li>
+                <a href="?curpage={{curpage}}&&allpage={{allpage}}&&pagetype=pageup" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span></a>
+              </li>
+              {% endifnotequal %}
+        {% if curpage > 5 %}
+                <li ><a href="?curpage=1&&allpage={{allpage}}&&pagetype=pageto" >...</a></li>
+
+              {% endif %}
+              {% for page in pagelist%}
+                {% if page == curpage%}
+                  <li class="active"><a href="?curpage={{page}}&&allpage={{allpage}}&&pagetype=pageto" >{{ page }}</a></li>
+                {%else%}
+                <li><a href="?curpage={{page}}&&allpage={{allpage}}&&pagetype=pageto">{{ page }}</a>  </li>
+                {% endif %}
+              {% endfor %}
+              {%if curpage <  borderpage %}
+                <li ><a href="?curpage={{allpage}}&&allpage={{allpage}}&&pagetype=pageto" >...</a></li>
+              {%endif%}
+              {% ifnotequal curpage allpage %}
+              <li>
+                <a href="?curpage={{curpage}}&&allpage={{allpage}}&&pagetype=pagedown" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span></a>
+              </li> 
+              {% endifnotequal %}
+              </ul>
+              </nav>
+         
+        </div>
+        </div>
+        
        	<div class="col-lg-12 textOrigin" id="textDevelop">
-       		2
+          <ul class="nav nav-tabs" style="margin-bottom:20px" role="tablist">
+          {% for c in gc %}
+            {% if c.id == 1 %}
+            <li role="presentation" class="active"><a href='#{{ c.name }}' aria-controls={{ c.name }} role="tab" data-toggle="tab">{{ c.name }}</a></li>
+            {% else %}
+                <li role="presentation" class=" "><a href='#{{ c.name }}' aria-controls={{ c.name }} role="tab" data-toggle="tab">{{ c.name }}</a></li>
+            {% endif %}
+          {% endfor %}
+          </ul>
+       		<div class="tab-content">
+          {% for g in gm %}
+            {% if g.gameType.id == 1 %}
+            <div role="tabpanel" class="tab-pane active" id="{{ g.gameType.name }}">
+            {% else %}
+            <div role="tabpanel" class="tab-pane" id="{{ g.gameType.name }}">
+            {% endif %}
+            <div class="col-md-2">
+                <div class="thumbnail" style="border:none">
+                <a href="/game/{{ g.id }}/">
+                    <img style="width:100px;height:100px" src="{% static g.imgUrl %}" alt="game"></a>
+                    <div class="caption" style="position:relative;top:0 ;text-align:center">
+                        <p>{{ g.name }}</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            {% endfor %}
+            </div>
        	</div>
     </div>
 </div>

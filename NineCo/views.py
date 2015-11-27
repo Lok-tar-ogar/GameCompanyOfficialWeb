@@ -197,9 +197,53 @@ def NewsOfB(request):
 
     return render(request,'bussinessWeb.html',{'bnews': bnews, 'allpage': allpage, 'borderpage': allpage - 3, 'pagelist': pagelist, 'curpage': curpage})
 
-
+GPageCount = 5
+GPAGERLEN = 8
 def gameCenter(request):
-    return render(request,'GameCenter.html',locals())
+    game = GameInfo.objects.all().order_by('-dimDate')
+    gc = GameClass.objects.all()
+    try:
+        curpage = int(request.GET.get('curpage', '1'))
+        allpage = int(request.GET.get('allpage', '1'))
+        pagetype = str(request.GET.get('pagetype', ''))
+    except ValueError:
+        curpage = 1
+        allpage = 1
+        pagetype = 1
+    if pagetype == 'pagedown':
+        curpage += 1
+    elif pagetype == 'pageup':
+        curpage -= 1
+    elif pagetype == 'pageto':
+        pass
+    startpos = (curpage - 1) * GPageCount
+    endpos = startpos + GPageCount
+    games = GameInfo.objects.all()[startpos:endpos]
+    if curpage == 1 and allpage == 1:
+        allNewsCount = GameInfo.objects.count()
+        allpage = allNewsCount // GPageCount
+        remainPost = allNewsCount % GPageCount
+        if remainPost > 0:
+            allpage += 1
+    pagelist = []  # below are the logic of pagination
+    if(allpage - curpage > GPAGERLEN - 2):
+        for i in range(curpage - 1 - GPAGERLEN // 2 if curpage - 1 - GPAGERLEN // 2 > 0 else 0, curpage - 1 + GPAGERLEN // 2):
+            pagelist.append(i + 1)
+            if len(pagelist) > GPAGERLEN - 1:
+                break
+    else:
+        if (curpage - 1 - GPAGERLEN // 2 > 0):
+            for i in range(curpage - 1 - GPAGERLEN // 2, curpage - 1 + GPAGERLEN // 2 if curpage - 1 + GPAGERLEN // 2 < allpage else allpage):
+                pagelist.append(i + 1)
+                if len(pagelist) > GPAGERLEN - 1:
+                    break
+        else:
+            for i in range(0, curpage - 1 + GPAGERLEN // 2 if curpage - 1 + GPAGERLEN // 2 < allpage else allpage):
+                pagelist.append(i + 1)
+                if len(pagelist) > GPAGERLEN - 1:
+                    break
+    
+    return render(request,'GameCenter.html',{'gamelist': games, 'allpage': allpage, 'borderpage': allpage - 3, 'pagelist': pagelist, 'curpage': curpage, 'gm': game, 'gc': gc})
 
 
 def BalagwIndex(request):
