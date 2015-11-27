@@ -197,7 +197,7 @@ def NewsOfB(request):
 
     return render(request,'bussinessWeb.html',{'bnews': bnews, 'allpage': allpage, 'borderpage': allpage - 3, 'pagelist': pagelist, 'curpage': curpage})
 
-GPageCount = 5
+GPageCount = 9
 GPAGERLEN = 8
 def gameCenter(request):
     game = GameInfo.objects.all().order_by('-dimDate')
