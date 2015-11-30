@@ -125,7 +125,7 @@ class News(models.Model):
         return self.newsTitle
 
     class Meta:
-        verbose_name = '业务咨询'
+        verbose_name = '新闻'
         ordering = ['-dimDate']  # sorted news by dimdate
 
 
@@ -154,5 +154,5 @@ class NewsOfBus(models.Model):
         return self.newsTitle
 
     class Meta:
-        verbose_name = '文章'
+        verbose_name = '业务咨询'
         ordering = ['-dimDate']  # sorted news by dimdate
