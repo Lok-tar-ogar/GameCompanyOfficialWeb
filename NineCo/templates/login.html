@@ -31,6 +31,7 @@ body {
     padding: 10px;
     position: relative;
     margin-bottom: 5px;
+
 }
 
 .form-signin .form-control:focus {
@@ -91,16 +92,16 @@ body {
 </script>
         <form class="form-signin" action="/login/" method="POST">
             {% csrf_token %}
-            <h2 class="form-signin-heading">登录</h2>
+            <h2 class="form-signin-heading" style="color:snow;">登录</h2>
             <label class="sr-only" for="inputEmail">用户名:</label>
             <input type="text" name="username" autofocus="" required="" placeholder="用户名" class="form-control" id="user">
             <label class="sr-only" for="inputPassword">密码</label>
             <input type="password" name="pwd" required="" placeholder="密码" class="form-control" id="pass">
-            <div class="checkbox">
+            <div class="checkbox" style="color:snow;">
                 <label>
-                    <input type="checkbox" id="rmbUser" checked="true"> 记住密码
+                    <input type="checkbox" id="rmbUser" checked="true" style="font-color:snow;"> 记住密码
                 </label>
-                <a href="#" class="pull-right">忘记密码</a>
+                <a href="#" class="pull-right" style="display:none;color:snow;">忘记密码</a>
             </div>
             <button type="submit" id="LoginBtn" onclick="saveUserInfo()" class="btn btn-lg btn-primary btn-block">登录</button>
             <a href="/reg" class="btn btn-lg btn-info btn-block">注册</a>

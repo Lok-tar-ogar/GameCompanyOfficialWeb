@@ -6,7 +6,11 @@
 {% load poll_extra %}
 {% block head %}
 <style type="text/css">
-	.TriOrigin{
+   body a
+  {
+    outline:none;blr:expression(this.onFocus=this.blur());
+  } 
+	 .TriOrigin{
         display: none;
     }
     .TriClick{
@@ -28,13 +32,14 @@
     }
     a:hover{
         color:#31B746;
-        text-decoration: none;
     }
     .Astyle{
         color:#31B746;
+        text-decoration: none;
     }
     .AOrigin{
         color:#fff;
+        text-decoration: none;
     }
 </style>
 {% endblock %}
@@ -84,15 +89,15 @@
 	</script>
 	<div class="col-lg-12" style="margin-top:10px;">
 		<blockquote style="border-left:5px solid #3171B8">
-            <p style="font-size:20px;color:#484D51">游戏中心</p>
+            <p style="font-size:20px;color:#484D51"><b>游戏中心</b></p>
         </blockquote>
 	</div>
 	<div class="col-lg-12">
 		<div class="col-lg-6" style="text-align:right">
-			<a href="javascript:void(0)" id ="AOperation">手游运营</a>
+			<a href="javascript:void(0)" id ="AOperation" style="text-decoration:none;">手游运营</a>
        	</div>
        	<div class="col-lg-6">
-       		<a href="javascript:void(0)" id="ADevelop">手游开发</a>
+       		<a href="javascript:void(0)" id="ADevelop" style="text-decoration:none;">手游开发</a>
        	</div>
        	<div class="col-lg-12">
        		<hr style="border:1px solid #31B746;margin-top:0px;"/>
