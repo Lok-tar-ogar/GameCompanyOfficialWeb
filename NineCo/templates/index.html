@@ -110,7 +110,7 @@
         <div class="row">
             {% for biggame in gamelist%}
             <div class="col-md-4">
-                <div class="thumbnail" style="background:#131824;border:none">
+                <div class="thumbnail" style="background:#131824;border:1px solid #eee">
                     <a href="/game/{{ biggame.id }}/"><img style="width:300px;height:200px;" src="{% static biggame.imgShow %}" alt="game"></a>
                     <div class="caption" style="position:relative;top:0">
                         <a href="/static/{{ biggame.Url }}" class="btn btn-outline-inverse" style="background-color: transparent;
