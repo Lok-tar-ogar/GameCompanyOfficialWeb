@@ -5,6 +5,10 @@
 {% endblock %}
 {% block head %}
 <style type="text/css">
+	body a
+	{
+		outline:none;blr:expression(this.onFocus=this.blur());
+	}
 	.style {
 		padding-left: 20px;
 	}
@@ -35,17 +39,21 @@
 	a:visited{
 		color:#B7AC30;
 		text-decoration: none;
+		border:none;
 	}
 	a:hover{
 		color:#B7AC30;
 		text-decoration: none;
 	}
-
-	Astyle{
+	.Astyle{
 		color:#B7AC30;
+		text-decoration: none;
+		border:none;
 	}
-	AOrigin{
+	.AOrigin{
 		color:#fff;
+		text-decoration: none;
+		border:none;
 	}
 </style>
 {% endblock %}
@@ -61,7 +69,6 @@
         })(jQuery);
 
 		$('#profile').click(function(){
-			$("profile").removeClass('AOrigin').addClass('Astyle');
 			$("#imgSummary").parent().children().removeClass('imgClick').addClass('imgOrigin');
 			$("#imgSummary").removeClass('imgOrigin').addClass('imgClick');
 			$("#TextSummary").parent().children().removeClass('textClick').addClass('textOrigin');
@@ -121,10 +128,10 @@
 			&nbsp;
 			</div>
 			<div class="col-md-6">
-				<a href="javascript:void(0);" class="style" style="padding-left:30px;" id="profile">公司简介</a>
-				<a href="javascript:void(0);" class="style"  id="target">企业目标</a>
-				<a href="javascript:void(0);" class="style"  id="culture">企业文化</a>
-				<a href="javascript:void(0);" class="style"  id="Team">团队介绍</a>
+				<a href="javascript:void(0);" class="style" style="padding-left:30px;text-decoration:none;border:none;" id="profile" >公司简介</a>
+				<a href="javascript:void(0);" class="style"  id="target" style="text-decoration:none;border:none;">企业目标</a>
+				<a href="javascript:void(0);" class="style"  id="culture" style="text-decoration:none;border:none;">企业文化</a>
+				<a href="javascript:void(0);" class="style"  id="Team" style="text-decoration:none;border:none;">团队介绍</a>
 			</div>
 			<div class="col-md-2">
 			&nbsp;

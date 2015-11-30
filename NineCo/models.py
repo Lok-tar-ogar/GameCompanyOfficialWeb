@@ -107,7 +107,15 @@ class News(models.Model):
     newsTitle = models.CharField('新闻标题', max_length=50)
     newsDetail = models.TextField('新闻详情', max_length=5000)
     # obviously it is what it looks like.
-    upLoadImg = models.FileField(
+    upLoadImg1 = models.FileField(
+        '上传新闻中的图片，引用图片请采用"/static/img/xxx.xx"格式', blank=True, null=True, upload_to='img/')
+    upLoadImg2 = models.FileField(
+        '上传新闻中的图片，引用图片请采用"/static/img/xxx.xx"格式', blank=True, null=True, upload_to='img/')
+    upLoadImg3 = models.FileField(
+        '上传新闻中的图片，引用图片请采用"/static/img/xxx.xx"格式', blank=True, null=True, upload_to='img/')
+    upLoadImg4 = models.FileField(
+        '上传新闻中的图片，引用图片请采用"/static/img/xxx.xx"格式', blank=True, null=True, upload_to='img/')
+    upLoadImg5 = models.FileField(
         '上传新闻中的图片，引用图片请采用"/static/img/xxx.xx"格式', blank=True, null=True, upload_to='img/')
     viewedTimes = models.IntegerField('浏览次数')
     dimDate = models.DateTimeField(auto_now_add=True)  # timezone.now()
@@ -129,6 +137,15 @@ class NewsOfBus(models.Model):
 
     upLoadImg = models.FileField(
         '上传新闻中的图片，引用图片请采用"/static/img/xxx.xx"格式', blank=True, null=True, upload_to='img/')
+    upLoadImg2 = models.FileField(
+        '上传新闻中的图片，引用图片请采用"/static/img/xxx.xx"格式', blank=True, null=True, upload_to='img/')
+    upLoadImg3 = models.FileField(
+        '上传新闻中的图片，引用图片请采用"/static/img/xxx.xx"格式', blank=True, null=True, upload_to='img/')
+    upLoadImg4 = models.FileField(
+        '上传新闻中的图片，引用图片请采用"/static/img/xxx.xx"格式', blank=True, null=True, upload_to='img/')
+    upLoadImg5 = models.FileField(
+        '上传新闻中的图片，引用图片请采用"/static/img/xxx.xx"格式', blank=True, null=True, upload_to='img/')
+
     viewedTimes = models.IntegerField('浏览次数')
     dimDate = models.DateTimeField(auto_now_add=True)  # timezone.now()
 
