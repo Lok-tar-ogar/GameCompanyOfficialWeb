@@ -5,7 +5,9 @@ register = template.Library()
 
 @register.filter(name='shorterArt')
 def shorterArt(value, arg):
-	Spacestr = ''
-    if len(value) > int(arg):
-    	Spacestr='...'
-    return value[:arg]+Spacestr
+    return value[:arg]+'...' if len(value)>30 else value[:arg]
+
+
+@register.filter(name='NewsFilter')
+def NewsFilter(value, arg):
+	return value[:arg]+'...' if len(value)>12 else value[:arg]

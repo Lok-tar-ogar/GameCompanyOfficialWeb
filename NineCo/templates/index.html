@@ -20,6 +20,7 @@
 }
     </style>
 {% endblock%} 
+{% load poll_extra %}
 {% load staticfiles %} 
 {% block content %}
 <div class="row" style="margin-left: 0px;
@@ -83,7 +84,7 @@
                     <div class="Newscontent">
                     <span style="text-align:left;color:#BD4662;margin-top:25px;margin-bottom:10px;">
                     <img src="{% static "img/redTriangle.png" %}" >
-                        <a href="/news/{{new.id}}" >{{ new.newsTitle }}</a>
+                        <a href="/news/{{new.id}}" >{{ new.newsTitle|NewsFilter:12 }}</a>
                     </span>
                     <span style="float:right;color:#363640;" align="right">
                         {{ new.dimDate|date:"m/d"}}
