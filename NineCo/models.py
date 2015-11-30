@@ -78,6 +78,7 @@ class GameInfo(models.Model):
         '游戏中心展示（用于展示在首页和游戏列表的图）', blank=True, null=True, upload_to='img/')
     gameType = models.ForeignKey(GameClass)
     forumLink = models.CharField('论坛链接', blank=True, null=True, max_length=50)
+    summary = models.CharField('游戏简介', blank=True, null=True, max_length=300)
     dimDate = models.DateField(auto_now_add=True)
 
     def __str__(self):

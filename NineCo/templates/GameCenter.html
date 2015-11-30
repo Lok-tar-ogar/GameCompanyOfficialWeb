@@ -93,27 +93,19 @@
         </blockquote>
 	</div>
 	<div class="col-lg-12">
-<<<<<<< HEAD
-		<div class="col-lg-6" style="text-align:right">
-			<a href="javascript:void(0)" id ="AOperation" style="text-decoration:none;">手游运营</a>
-       	</div>
-       	<div class="col-lg-6">
-       		<a href="javascript:void(0)" id="ADevelop" style="text-decoration:none;">手游开发</a>
-=======
-		<div class="col-lg-5" style="text-align:right">
-			<a href="javascript:void(0)" id ="AOperation">手游运营</a>
-       	</div>
+		    <div class="col-lg-5" style="text-align:right">
+			     <a href="javascript:void(0)" id ="AOperation">手游运营</a>
+        </div>
         <div class="col-lg-2"></div>
-       	<div class="col-lg-5">
+        <div class="col-lg-5">
        		<a href="javascript:void(0)" id="ADevelop">手游开发</a>
->>>>>>> origin/master
-       	</div>
+        </div>
        	<div class="col-lg-12">
        		<hr style="border:1px solid #31B746;margin-top:0px;"/>
        	</div>
        	<div class="col-lg-12" style="margin-top:-17px;">
        		<div class="col-lg-5" style="text-align:right;">
-				<img src="{% static "img/GreenTri.png" %}" id="imgOperation" class="TriClick" style="margin:0 0 0 auto;">&nbsp;
+			     	<img src="{% static "img/GreenTri.png" %}" id="imgOperation" class="TriClick" style="margin:0 0 0 auto;">&nbsp;
        		</div>
           <div class="col-lg-2"></div>
        		<div class="col-lg-5">
@@ -132,10 +124,10 @@
                         <a href="/game/{{ biggame.id }}" class="info" style="letter-spacing:2px"><b>下载游戏</b></a>
                     </div>
                 </div>
-                <div class="caption" style="position:relative;top:0">
+                <div class="caption" style="position:relative;top:0;height:70px;">
                     <img class="pull-left" src="{% static biggame.imgUrl %}" style="width:50px;height:50px;">
                     {% autoescape off %}
-                    <span style="color:#A2A2A4" class="text-right"><small>{{ biggame.content |shorterArt:20 }}</small></span>
+                    <span style="color:#A2A2A4;min-height:150px;" class="text-right"><small>{{ biggame.summary |shorterArt:25 }}</small></span>
                     {% endautoescape %}
                 </div>
             </div>
@@ -195,7 +187,7 @@
             {% else %}
             <div role="tabpanel" class="tab-pane" id="{{ g.gameType.name }}">
             {% endif %}
-            <div class="col-md-2">
+            <div class="col-xs-2">
                 <div class="thumbnail" style="border:none">
                 <a href="/game/{{ g.id }}/">
                     <img style="width:100px;height:100px" src="{% static g.imgUrl %}" alt="game"></a>
