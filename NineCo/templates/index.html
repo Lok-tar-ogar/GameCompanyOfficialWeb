@@ -69,7 +69,7 @@
     </div>
 </div>
 <div class="container" >
-        <div class="col-lg-12 col-xs-12 " style="margin-top:-200px">
+        <div class="col-lg-12 col-xs-12 " style="margin-top:-200px;width:410px;height:180px;">
             
             <div class="col-lg-6 col-xs-6" style="width:410px;height:180px;">
                 <div style="background-color:#131824;color:snow;">
@@ -98,7 +98,8 @@
             </div>
             <div class="col-lg-6 col-xs-6">
             </div>
-        </div></div>
+        </div>
+        </div>
 <div class="row" style="background:#131824;margin-left: 0px;
     margin-right: 0px;">
     <div class="container">
@@ -154,7 +155,7 @@ $(function  () {
                 <div class="col-xs-6"><a href="/game/{{ smallgame.id }}/"><img style="width:100px;height:100px;" class="pull-right" src="{% static smallgame.imgUrl %}"></a></div>
                 <div class="col-xs-6">
                     <h4 style="color:#ff8700">{{ smallgame.name }}</h4>
-                    <p>{{ smallgame.content | safe }}</p>
+                    <p>{{ smallgame.summary | NewsFilter:12 }}</p>
                 </div>
             </div>
             {% endfor %}
