@@ -84,7 +84,7 @@
                     <div class="Newscontent">
                     <span style="text-align:left;color:#BD4662;margin-top:25px;margin-bottom:10px;">
                     <img src="{% static "img/redTriangle.png" %}" >
-                        <a href="/news/{{new.id}}" >{{ new.newsTitle|NewsFilter:17 }}</a>
+                        <a href="/news/{{new.id}}" >{{ new.newsTitle|NewsFilter:12 }}</a>
                     </span>
                     <span style="float:right;color:#363640;" align="right">
                         {{ new.dimDate|date:"m/d"}}
@@ -155,7 +155,7 @@ $(function  () {
                 <div class="col-xs-6"><a href="/game/{{ smallgame.id }}/"><img style="width:100px;height:100px;" class="pull-right" src="{% static smallgame.imgUrl %}"></a></div>
                 <div class="col-xs-6">
                     <h4 style="color:#ff8700">{{ smallgame.name }}</h4>
-                    <p>{{ smallgame.summary | NewsFilter:17 }}</p>
+                    <p>{{ smallgame.summary | NewsFilter:12 }}</p>
                 </div>
             </div>
             {% endfor %}
