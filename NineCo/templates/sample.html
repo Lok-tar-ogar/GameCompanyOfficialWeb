@@ -82,7 +82,7 @@
 </head>
 
 <body>
-    <div class="header" style="background:#131824;">
+    <div class="header" style="background:#131824;min-width:1000px;">
 <div class="blackUnderWear"></div>
         <div class="container">
         
@@ -145,12 +145,12 @@
             <div class="clearfix"></div>
         </div>
     </div>
-    <div> <img class="col-xs-12 col-xs-12 col-lg-12" style="padding-left:0px;padding-right:0px" src="{% static "img/bar.jpg" %}"></div>
+    <div> <img class="col-xs-12 col-xs-12 col-lg-12" style="padding-left:0px;padding-right:0px;min-width:1000px" src="{% static "img/bar.jpg" %}"></div>
     <div class="clearfix"></div>
     <div class="minHeightContent">
         {% block content %} {% endblock %}
     </div>
-    <footer class="footer" style="background:#131824;padding-bottom:10px;padding-top:5px;font-family:Microsoft YaHei;bottom:0px;">
+    <footer class="footer" style="background:#131824;padding-bottom:10px;padding-top:5px;font-family:Microsoft YaHei;bottom:0px; min-width:1000px">
         <div class="container">
             <div class="col-lg-12 col-xs-12">
                 <div class="col-lg-2 col-xs-2">&nbsp;</div>
