@@ -1186,7 +1186,7 @@ ul.tags_links li a:hover{
 		font-size: 0.875em;
 	}
 	ul.navig {
-		margin-top: 0px;
+		/*margin-top: 0px;*/
 	}
 	.banner {
 		min-height: 369px;
@@ -1218,7 +1218,7 @@ ul.tags_links li a:hover{
 		margin-right: 0;
 	}
 }
-@media(max-width:768px){
+@media(max-width:168px){
 	span.menu{
 		width:32px;
 		height:32px;
