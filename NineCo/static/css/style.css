@@ -1233,7 +1233,7 @@ ul.tags_links li a:hover{
 		text-align:center;
 		background:#fff;
 		padding:0.5em 0;
-		margin-top:10px;
+		margin-top:75px;
 	}
 	ul.navig{
 		float:none;
@@ -1357,7 +1357,7 @@ ul.tags_links li a:hover{
 }
 @media(max-width:480px){
 	.logo a img {
-		width: 37%;
+		width: 50%;
 	}
 	.header {
 		padding: 0.5em 0;
