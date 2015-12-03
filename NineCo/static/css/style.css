@@ -1174,7 +1174,7 @@ ul.tags_links li a:hover{
 /*-- Media Queries Starts Here --*/
 @media(max-width:1024px){
 	.logo a img {
-		width: 100%;
+		/*width: 100%;*/
 	}
 	.navigation {
 		width: 100%;
@@ -1357,7 +1357,7 @@ ul.tags_links li a:hover{
 }
 @media(max-width:480px){
 	.logo a img {
-		width: 50%;
+		/*width: 50%;*/
 	}
 	.header {
 		padding: 0.5em 0;
