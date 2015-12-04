@@ -72,18 +72,20 @@
         <div class="col-lg-12 col-xs-12 " style="margin-top:-230px;width:410px;height:180px;">
             
             <div class="col-lg-6 col-xs-6" style="width:410px;height:180px;">
-                <div style="background-color:#131824;color:snow;">
+                <div style="background-color:#151924;color:snow;height:30px">
+                    <div style="padding-top:3px">
                     <span style="margin-left:5px;font-style:bold;"><b>新闻资讯</b></span>
                     <span style="float:right;margin-right:5px">
-                        <a href="/News/" style="color:snow;">更多&gt&gt</a>
+                        <a href="/News/" style="color:snow;"><small><b>更多&gt&gt</b></small></a>
                     </span>
+                    </div>
                 </div>
                 <div style="background-color:snow;">
                     {% if news %}
                     {% for new in news %}
                     <div class="Newscontent">
-                    <span style="text-align:left;color:#BD4662;margin-top:25px;margin-bottom:10px;">
-                    <img src="{% static "img/redTriangle.png" %}" >
+                    <span style="text-align:left;color:#BD4662;margin-top:10px;margin-bottom:5px;">
+                    <img src="{% static "img/blueTri.png" %}" >
                         <a href="/news/{{new.id}}" >{{ new.newsTitle|NewsFilter:17 }}</a>
                     </span>
                     <span style="float:right;color:#363640;" align="right">
@@ -100,23 +102,25 @@
             </div>
         </div>
         </div>
-<div class="row" style="background:#131824;margin-left: 0px;
+<div class="row" style="background:#ECECEC;margin-left: 0px;
     margin-right: 0px;min-width:1000px;">
-    <div class="container">
-        <div class="row" style="margin-top:5px">
-            <blockquote style=" border-left:5px solid #b73053" class="col-xs-6 col-xs-6">
-                <p style="font-size:20px;color:#ff8700"><b>热门游戏</b></p>
+    <div class="container" style="background:#ffffff;">
+        <div style="border-bottom:1px #D8D8D8 dashed;"></div> 
+        <div class="row" style="margin-top:10px">
+            <blockquote style=" border-left:5px solid #3171B8" class="col-xs-6 col-xs-6">
+                <p style="font-size:20px;color:#2B2C2E"><b>热门游戏</b></p>
             </blockquote>
-            <div class="col-xs-6 col-xs-6 " style="margin-top:10px;"><a href="/games/" class="pull-right" style="font-size:16px;color:#ff8700"><strong>更多&gt&gt</strong></a></div>
+            <div class="col-xs-6 col-xs-6 " style="margin-top:13px;"><a href="/games/" class="pull-right" style="font-size:16px;color:#2B2C2E"><b>更多&gt&gt</b></a></div>
         </div>
-        <div class="row">
+        <div style="border-bottom:1px #D8D8D8 dashed;"></div> 
+        <div class="row" style="margin-top:4px">
             {% for biggame in gamelist%}
             <div class="col-xs-4">
-                <div class="thumbnail" style="background:#131824;border:1px solid #eee">
+                <div class="thumbnail" style="background:#fff;border:1px solid #eee">
                     <a href="/game/{{ biggame.id }}/"><img style="width:300px;height:200px;" src="{% static biggame.imgShow %}" alt="game"></a>
                     <div class="caption" style="position:relative;top:0">
-                        <a href="/static/{{ biggame.Url }}" class="btn btn-outline-inverse" style="background-color: transparent;border-color: #cdbfe3;width:130px;color: #fff;" role="button">下载游戏</a>
-                        <a href="{{ biggame.forumLink }}" class="btn btn-outline-inverse" style="background-color: transparent;width:130px;border-color: #cdbfe3;color: #fff;" role="button">游戏官网</a>
+                        <a href="/static/{{ biggame.Url }}" class="btn btn-outline-inverse" style="background-color: transparent;border-color:#B3B3B3;width:130px;color:#B3B3B3;" role="button">下载游戏</a>
+                        <a href="{{ biggame.forumLink }}" class="btn btn-outline-inverse" style="background-color: transparent;width:130px;border-color:#B3B3B3;color: #B3B3B3;" role="button">游戏官网</a>
                     </div>
                 </div>
             </div>
@@ -127,13 +131,13 @@
 $(function  () {
    $('.btn-outline-inverse').hover(function() {
        $(this).css({
-       "border-color": "#d9534f",
-    "color": "#d9534f"
+       "border-color": "#3171B8",
+    "color": "#3171B8"
    });
    }, function() {
        $(this).css({
-       "border-color": "#cdbfe3",
-    "color": "#fff"
+       "border-color": "#B3B3B3",
+    "color": "#B3B3B3"
    });/* Stuff to do when the mouse leaves the element */
    });
 });
@@ -141,21 +145,23 @@ $(function  () {
     </script>
 </div>
 <div class="row" style="margin-left: 0px;
-    margin-right: 0px;">
-    <div class="container">
-        <div class="row" style="margin-top:5px">
-            <blockquote style=" border-left:5px solid #b73053" class="col-xs-6 col-xs-6">
-                <p style="font-size:20px;color:#ff8700"><b>游戏产品</b></p>
+    margin-right: 0px;background:#ECECEC;min-width:1000px;" >
+    <div class="container" style="background:#ffffff;">
+        <div style="border-bottom:1px #D8D8D8 dashed;"></div>     
+        <div class="row" style="margin-top:10px;">
+            <blockquote style=" border-left:5px solid #3171B8" class="col-xs-6 col-xs-6">
+                <p style="font-size:20px;color:#2B2C2E"><b>游戏产品</b></p>
             </blockquote>
-            <div class="col-xs-6 col-xs-6" style="margin-top:10px;"><a class="pull-right" href="/gameclass" style="font-size:16px;color:#ff8700"><strong>更多&gt&gt</strong></a></div>
+            <div class="col-xs-6 col-xs-6" style="margin-top:13px;"><a class="pull-right" href="/gameclass" style="font-size:16px;color:#2B2C2E;font-family:Microsoft Yahei"><b>更多&gt&gt</b></a></div>
         </div>
+        <div style="border-top:1px #D8D8D8 dashed;"></div>
         <div class="row" style="padding-bottom:50px;">
             {% for smallgame in games%}
             <div class="col-xs-4" style="margin-top:30px;">
                 <div class="col-xs-6"><a href="/game/{{ smallgame.id }}/"><img style="width:100px;height:100px;" class="pull-right" src="{% static smallgame.imgUrl %}"></a></div>
                 <div class="col-xs-6">
-                    <h4 style="color:#ff8700">{{ smallgame.name }}</h4>
-                    <p>{{ smallgame.summary | NewsFilter:17 }}</p>
+                    <h4 style="color:#3171B8"><b>{{ smallgame.name }}</b></h4>
+                    <p style="color:#8D8D8F;"><small>{{ smallgame.summary | NewsFilter:23 }}</small></p>
                 </div>
             </div>
             {% endfor %}

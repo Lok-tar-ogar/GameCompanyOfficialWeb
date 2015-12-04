@@ -50,7 +50,7 @@ ul.navig li{
 ul.navig li a{
 	text-transform:uppercase;
 	font-size:1em;
-	color:#fff;
+	color:#605E5F;
 	font-weight:700;
 }
 ul.navig li a:hover{
@@ -583,7 +583,6 @@ width: 25%!important;
 .footer{
 	padding:2em 0;
 	text-align:center;
-	border-top:10px solid #3c3a3e;
 }
 ul.social{
 	padding:0;
