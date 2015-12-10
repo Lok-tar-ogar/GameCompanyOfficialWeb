@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render_to_response
-from NineCo.models import JobsInfo, Classification, Carousel, GameInfo, GameClass, News ,NewsOfBus
+from NineCo.models import JobsInfo, Classification, Carousel, GameInfo, GameClass, News ,NewsOfBus,NewsImg
 from django.core import serializers
 from django.http import HttpResponse, HttpResponseRedirect
 import base64
@@ -24,7 +24,8 @@ def Index(request):
         games[i].content = games[i].content[0:20]
     carousel = Carousel.objects.all()[::-1]
     gamelist = GameInfo.objects.all()[0:3]
-    news = News.objects.all()[0:4]
+    news = News.objects.all()[0:5]
+    newsimg=NewsImg.objects.all()[0]
     return render(request, "index.html", locals())
 
 

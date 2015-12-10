@@ -18,7 +18,7 @@
 	{% for p in bnews %}
 		<div style="margin-top:10px;margin-bottom:10px;" class="bus">
 			<div><img src="{% static  p.imgShow %}" alt="业务咨询" style="width:100%"></div>
-			<div style="color:#5A5B62;font-family:Microsoft Yahei;margin-top:3px;letter-spacing:2px;">&nbsp;&nbsp;&nbsp;&nbsp;{{ p.newsDetail }}</div>
+			<div style="color:#5A5B62;font-family:Microsoft Yahei;margin-top:3px;letter-spacing:2px;">{{ p.newsDetail | safe }}</div>
 		</div>
 	{% endfor %}
 <div class="text-center">

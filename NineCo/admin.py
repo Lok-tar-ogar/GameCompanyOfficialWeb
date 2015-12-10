@@ -1,5 +1,5 @@
 from django.contrib import admin
-from NineCo.models import Carousel, Classification, GameClass, GameInfo, JobsInfo, News, NewsOfBus
+from NineCo.models import Carousel, Classification, GameClass, GameInfo, JobsInfo, News, NewsOfBus,NewsImg
 
 
 class NewsAdmin(admin.ModelAdmin):
@@ -18,3 +18,4 @@ admin.site.register(JobsInfo, NewsAdmin)
 admin.site.register(Carousel)
 admin.site.register(Classification)
 admin.site.register(NewsOfBus, NewsAdmin)
+admin.site.register(NewsImg)

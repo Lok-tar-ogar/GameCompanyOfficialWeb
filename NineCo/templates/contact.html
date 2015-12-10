@@ -157,5 +157,10 @@ map.centerAndZoom(new BMap.Point(104.074944, 30.543463), 20); //
 map.addControl(new BMap.MapTypeControl()); //添加地图类型控件
 map.setCurrentCity("成都"); // 设置地图显示的城市 
 map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
+var local = new BMap.LocalSearch(map, {
+  renderOptions:{map: map}
+});
+local.searchInBounds("软件园e6-2", map.getBounds());
+
 </script>
 {% endblock %}

@@ -1,12 +1,26 @@
 # coding : utf-8
 from django.db import models
 
+class NewsImg(models.Model):
+
+    
+    Image = models.FileField('图片（496*360）', upload_to='img/')
+    Linkto = models.CharField('链接地址（可为空）', max_length=50, blank=True)
+    dimDate = models.DateTimeField(auto_now_add=True)  # timezone.now()
+
+    def __str__(self):
+        return self.Linkto
+
+    class Meta:
+        verbose_name = '首页图片新闻'
+        ordering = ['-dimDate']  # sorted news by dimdate
+
 
 class Carousel(models.Model):
 
     """docstring for Carousel"""
     Title = models.CharField('标题', max_length=50)
-    Image = models.FileField('图片（1920*500）', upload_to='img/')
+    Image = models.FileField('图片（1920*600）', upload_to='img/')
     Linkto = models.CharField('链接地址（可为空）', max_length=50, blank=True)
     Caption = models.CharField('子标题', max_length=500, blank=True, null=True)
     dimDate = models.DateTimeField(auto_now_add=True)  # timezone.now()
