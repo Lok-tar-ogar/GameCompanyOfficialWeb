@@ -87,9 +87,9 @@
         }
 		});
 	</script>
-	<div class="col-xs-12" style="margin-top:10px;">
-		<blockquote style="border-left:5px solid #3171B8">
-            <p style="font-size:20px;color:#484D51" ><b>游戏中心</b></p>
+	<div class="col-xs-12" style="margin-top:25px;">
+		<blockquote style="border-left:5px solid #3171B8;height:25px;padding:0 0 0 18px">
+            <p style="font-size:20px;color:#484D51;" ><b>游戏中心</b></p>
         </blockquote>
 	</div>
 	<div class="col-xs-12">
@@ -127,7 +127,7 @@
                 <div class="caption" style="position:relative;top:0;height:80px;">
                     <img class="pull-left" src="{% static biggame.imgUrl %}" style="width:50px;height:50px;">
                     {% autoescape off %}
-                    <span style="color:#9A9DA2;min-height:150px;letter-spacing:1px;" class="text-right"><small>{{ biggame.summary |shorterArt:25 }}</small></span>
+                    <div style="color:#9A9DA2;min-height:150px;letter-spacing:1px;margin-left:70px" class="text-left"><small>{{ biggame.summary |shorterArt:25 }}</small></div>
                     {% endautoescape %}
                 </div>
             </div>
