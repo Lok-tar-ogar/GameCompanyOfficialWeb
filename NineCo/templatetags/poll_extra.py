@@ -10,4 +10,4 @@ def shorterArt(value, arg):
 
 @register.filter(name='NewsFilter')
 def NewsFilter(value, arg):
-	return value[:arg]+'...' if len(value)>23 else value[:arg]
+	return value[:arg]+'...' if len(value)>25 else value[:arg]

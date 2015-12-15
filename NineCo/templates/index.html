@@ -91,7 +91,7 @@
                     <div class="Newscontent">
                     <span style="text-align:left;color:#fff;margin-top:10px;margin-bottom:5px;">
                     
-                        <a href="/news/{{new.id}}" style="color:#fff;">{{ new.newsTitle|NewsFilter:17 }}</a>
+                        <a href="/news/{{new.id}}" style="color:#fff;">{{ new.newsTitle|NewsFilter:20 }}</a>
                     </span>
                     <span style="float:right;color:#fff;" align="right">
                         {{ new.dimDate|date:"m/d"}}
@@ -113,13 +113,13 @@
 <div class="row" style="background:#ECECEC;margin-left: 0px;
     margin-right: 0px;min-width:1200px;">
     <div class="container" style="background:#EDEDED;">
-        <div class="row" style="margin-top:10px">
+        <div class="row" style="margin-top:40px;">
             <blockquote style=" border-left:5px solid #118FDC;height:25px;" class="col-xs-6 col-xs-6">
                 <p style="font-size:20px;color:#2B2C2E;margin-top:-10px;"><b>热门游戏</b></p>
             </blockquote>
             <div class="col-xs-6 col-xs-6 " style="margin-top:3px;"><a href="gamecenter/?action=operation" class="pull-right" style="font-size:16px;color:#2B2C2E"><b>更多&gt&gt</b></a></div>
         </div>
-        <div class="row" style="margin-top:4px">
+        <div class="row" style="margin-top:4px;margin-bottom:20px;">
             {% for biggame in gamelist%}
             <div class="col-xs-4" style="padding:0 10px 0 10px;">
                 <div class="thumbnail" style="background:#fff;padding:0;">
@@ -154,7 +154,7 @@ $(function  () {
     margin-right: 0px;background:#fff;min-width:1200px;" >
     <div class="container" style="background:#F5F5F5;border:2px #F0F0F0 solid"> 
         <div class="row" style="margin-top:10px;background:#F5F5F5;">
-            <blockquote style=" border-left:5px solid #118FDC;height:25px;margin-top:20px;" class="col-xs-6 col-xs-6">
+            <blockquote style=" border-left:5px solid #118FDC;height:25px;margin-top:40px;" class="col-xs-6 col-xs-6">
                 <p style="font-size:20px;color:#2B2C2E;margin-top:-10px;"><b>游戏产品</b></p>
             </blockquote>
             <div class="col-xs-6 col-xs-6" style="margin-top:-5px;"><a class="pull-right" href="gamecenter/?action=develop" style="font-size:16px;color:#2B2C2E;font-family:Microsoft Yahei"><img src="/static/img/b4.jpg" /></a></div>
