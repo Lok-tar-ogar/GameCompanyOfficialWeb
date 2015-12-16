@@ -39,7 +39,7 @@
 
                         </div>
                     </div>
-                    <div class="col-xs-4 ">
+                    <div class="col-xs-6 ">
                         
                         <img class="pull-right"   src="{% static game.QRimg %}" style="width:120px;height:120px;margin-left:20px;" />
                         <div class="pull-right">
@@ -47,8 +47,7 @@
                         
                         <a  href="{{ game.forumLink }}" ><img class="pull-right"  src="{% static "img/btnBBS.jpg" %}" style="width:160px;height:50px;margin-left:20px;margin-top:20px;" /></a></div>
                     </div>
-                    <div class="col-xs-2">
-                    </div>
+                    
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -58,7 +57,7 @@
             <br/>
             <div class="row">
             
-             <div class="col-xs-12 col-xs-12">
+             <div class="col-xs-12 col-xs-12 text-center">
              <img  src="{% static game.imgContent1 %}" style="width:296px;height:524px;margin-left:10px;" />
             <img  src="{% static game.imgContent2 %}" style="width:296px;height:524px;margin-left:25px;" />
             <img  src="{% static game.imgContent3 %}" style="width:296px;height:524px;margin-left:25px;" />
@@ -67,12 +66,12 @@
             </div>   
             </div>
             </div>
-            <div class="row" style="margin-top:30px">
+            <div class="row" style="margin-top:50px">
                 <blockquote style=" border-left:5px solid #b73053;height:25px;" class="col-xs-11">
                     <p style="font-size:20px;color:#ff8700;margin-top:-10px;">游戏简介</p>
                 </blockquote>
             </div>
-            <div id="gameD" class="row" style="margin-top:5px;margin-bottom:100px;">
+            <div id="gameD" class="row text-left" style="margin-top:5px;margin-bottom:100px;padding-left:125px;padding-right:125px;">
             
                 {{ game.content |safe }}
                 

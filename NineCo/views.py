@@ -24,7 +24,10 @@ def Index(request):
         games[i].content = games[i].content[0:20]
     carousel = Carousel.objects.all()[::-1]
     gamelist = GameInfo.objects.all()[0:3]
-    news = News.objects.all()[0:5]
+
+    news = News.objects.all()[0:6]
+    new1=news[0]
+    news=news[1:6]
     newsimg=NewsImg.objects.all()[0]
     return render(request, "index.html", locals())
 
