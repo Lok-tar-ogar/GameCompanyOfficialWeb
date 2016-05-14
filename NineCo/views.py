@@ -19,16 +19,16 @@ def Index(request):
     # postdata = urllib.parse.urlencode({'userName': '123', 'pwd': '123'})
     # postdata = postdata.encode('utf-8')
     # f = urllib.request.urlopen(url,postdata)
-    games = GameInfo.objects.all().order_by('-dimDate')[0:6]
-    for i in range(0, len(games)):
-        games[i].content = games[i].content[0:20]
-    carousel = Carousel.objects.all()[::-1]
-    gamelist = GameInfo.objects.all()[0:3]
-
-    news = News.objects.all()[0:7]
-    new1=news[0]
-    news=news[1:7]
-    newsimg=NewsImg.objects.all()[0]
+    # games = GameInfo.objects.all().order_by('-dimDate')[0:6]
+    # for i in range(0, len(games)):
+    #     games[i].content = games[i].content[0:20]
+    # carousel = Carousel.objects.all()[::-1]
+    # gamelist = GameInfo.objects.all()[0:3]
+    #
+    # news = News.objects.all()[0:7]
+    # new1=news[0]
+    # news=news[1:7]
+    # newsimg=NewsImg.objects.all()[0]
     return render(request, "index.html", locals())
 
 

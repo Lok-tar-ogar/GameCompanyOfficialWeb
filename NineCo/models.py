@@ -170,3 +170,12 @@ class NewsOfBus(models.Model):
     class Meta:
         verbose_name = '业务咨询'
         ordering = ['-dimDate']  # sorted news by dimdate
+
+
+class User(models.Model):
+    username = models.CharField('用户名', max_length=50)
+    psd = models.CharField('密码', max_length=50)
+    mail = models.EmailField('电子邮件',max_length=500)
+
+    class Meta:
+        verbose_name = '用户信息'

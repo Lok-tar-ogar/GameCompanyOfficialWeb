@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'nine.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'NineDB',
+        'NAME': 'GameWeb',
         'USER': 'root',
-        'PASSWORD': 'd!ck1999',
-        'HOST': '56167fff1aa77.sh.cdb.myqcloud.com',
-        'PORT': '7069',
+        'PASSWORD': '123456',
+        'HOST': '115.28.213.151',
+        'PORT': '3306',
     }
 }
 
