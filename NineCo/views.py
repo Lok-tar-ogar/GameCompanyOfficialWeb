@@ -151,11 +151,16 @@ def logout(request):
 
 
 def regist(request):
-    
+    if request.method == "POST":
+        # try:
+        username = request.POST.get('username', None)
+        password = request.POST.get('password', None)
+        email = request.POST.get('mail',None)
     return render(request, 'regist.html')
 
 BPageCount = 3
 BPAGERLEN = 8
+
 
 def NewsOfB(request):
     try:
