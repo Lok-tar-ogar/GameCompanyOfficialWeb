@@ -1,0 +1,92 @@
+{% extends "sample.html" %}
+{% block title %}
+论坛-九越互动
+{% endblock %}
+{% block head %}
+<style type="text/css">
+	.Newstitle{
+		font-size: large;
+		color:#B63053;
+		text-align: center;
+		margin-bottom: 20px;
+		margin-top: 20px;
+	}
+	.Newscontent{
+		margin-top:10px;
+		margin-bottom: 10px;
+	}
+	span a:link{
+		color: #363640;
+	}
+	span a:hover{
+		color: #BD4560;
+	}
+
+	</style>
+{% endblock %}
+{% block content %}
+	<div class="container">
+		<div class="col-xs-12" style="margin-top:30px;">
+			<div class="col-xs-1">&nbsp;</div>
+			<div class="col-xs-10" class="margin-top:600px;margin-bottom:5px;">当前位置：论坛</div>
+			<div class="col-xs-1">&nbsp;</div>
+		</div>
+		<div class="col-xs-12">
+			<div class="col-xs-1">&nbsp;</div>
+			<div class="col-xs-10" style="border:1px solid #E0E0E0;margin-top:20px;margin-bottom:50px;">
+				<div class="Newstitle">
+						<b>论坛</b>
+				</div>
+				{% for forum in forums %}
+				<div class="Newscontent">
+					<span style="text-align:left;color:#BD4662">
+						<a href="/news/{{forum.id}}" >{{ forum.title }}</a>
+					</span>
+					<span style="float:right;color:#363640;" align="right">
+						{{ title.create_time|date:"Y-m-d"}}
+					</span>
+				</div>
+				<div>
+					<hr style=" margin-top:3px;height:2px;border:none;border-bottom:3px solid #DADADA;" />
+				</div>
+				{% endfor %}
+				<div class="text-center">
+				<nav>
+
+            	<ul class="pagination pagination-sm">
+            	{% ifnotequal curpage 1 %}
+            	<li>
+              	<a href="?curpage={{curpage}}&&allpage={{allpage}}&&pagetype=pageup" aria-label="Previous">
+              	<span aria-hidden="true">&laquo;</span></a>
+            	</li>
+            	{% endifnotequal %}
+				{% if curpage > 5 %}
+             		<li ><a href="?curpage=1&&allpage={{allpage}}&&pagetype=pageto" >...</a></li>
+
+            	{% endif %}
+            	{% for page in pagelist%}
+            		{% if page == curpage%}
+              		<li class="active"><a href="?curpage={{page}}&&allpage={{allpage}}&&pagetype=pageto" >{{ page }}</a></li>
+            		{%else%}
+            		<li><a href="?curpage={{page}}&&allpage={{allpage}}&&pagetype=pageto">{{ page }}</a>	</li>
+            		{% endif %}
+            	{% endfor %}
+            	{%if curpage <  borderpage %}
+             		<li ><a href="?curpage={{allpage}}&&allpage={{allpage}}&&pagetype=pageto" >...</a></li>
+            	{%endif%}
+            	{% ifnotequal curpage allpage %}
+            	<li>
+              	<a href="?curpage={{curpage}}&&allpage={{allpage}}&&pagetype=pagedown" aria-label="Next">
+              	<span aria-hidden="true">&raquo;</span></a>
+            	</li>
+            	{% endifnotequal %}
+          		</ul>
+          		</nav>
+				</div>
+			</div>
+			<div class="col-xs-1">&nbsp;</div>
+		</div>
+	</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

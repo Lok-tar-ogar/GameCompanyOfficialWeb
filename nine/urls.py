@@ -34,6 +34,10 @@ urlpatterns = [
     url(r'^gamecenter', 'NineCo.views.gameCenter'),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': '/static/'}),
+
+    url(r'^Forum/$', 'NineCo.views.ForumCenter'),
+    url(r'^forums/(?P<forumsid>\d)/$', 'NineCo.views.ForumDetail'),
+
     url(r'^balagw/index.html', 'NineCo.views.BalagwIndex'),
     url(r'^mvfenxiang/fenxiang.html', 'NineCo.views.fenxiang'),
     url(r'^fenxiang/fenxiang.html', 'NineCo.views.fenxiang2'),

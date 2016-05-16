@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import render_to_response
-from NineCo.models import JobsInfo, Classification, Carousel, GameInfo, GameClass, News ,NewsOfBus,NewsImg
+from NineCo.models import JobsInfo, Classification, Carousel, GameInfo, GameClass, News, \
+    NewsOfBus, NewsImg, Forum, Comment
 from django.core import serializers
 from django.http import HttpResponse, HttpResponseRedirect
 import base64
@@ -10,8 +11,6 @@ import urllib
 import sys
 import http.cookiejar
 import json
-
-
 
 
 def Index(request):
@@ -208,6 +207,8 @@ def NewsOfB(request):
 
 GPageCount = 9
 GPAGERLEN = 8
+
+
 def gameCenter(request):
     game = GameInfo.objects.all().order_by('-dimDate')
     gc = GameClass.objects.all()
@@ -253,6 +254,57 @@ def gameCenter(request):
                     break
     
     return render(request,'GameCenter.html',{'gamelist': games, 'allpage': allpage, 'borderpage': allpage - 3, 'pagelist': pagelist, 'curpage': curpage, 'gm': game, 'gc': gc})
+
+Forum_PageCount = 3
+Forum_PAGERLEN = 8
+
+
+def ForumCenter(request):
+    try:
+        curpage = int(request.GET.get('curpage', '1'))
+        allpage = int(request.GET.get('allpage', '1'))
+        pagetype = str(request.GET.get('pagetype', ''))
+    except ValueError:
+        curpage = 1
+        allpage = 1
+        pagetype = 1
+    if pagetype == 'pagedown':
+        curpage += 1
+    elif pagetype == 'pageup':
+        curpage -= 1
+    elif pagetype == 'pageto':
+        pass
+    startpos = (curpage - 1) * Forum_PageCount
+    endpos = startpos + Forum_PageCount
+    posts = Forum.objects.all().order_by('-create_time')[startpos:endpos]
+    if curpage == 1 and allpage == 1:
+        allForumCount = Forum.objects.count()
+        allpage = allForumCount // Forum_PageCount
+        remainPost = allForumCount % Forum_PageCount
+        if remainPost > 0:
+            allpage += 1
+    pagelist = []  # below are the logic of pagination
+    if (allpage - curpage > Forum_PAGERLEN - 2):
+        for i in range(curpage - 1 - Forum_PAGERLEN // 2 if curpage - 1 - Forum_PAGERLEN // 2 > 0 else 0, curpage - 1 + Forum_PAGERLEN // 2):
+            pagelist.append(i + 1)
+            if len(pagelist) > Forum_PAGERLEN - 1:
+                break
+    else:
+        if(curpage - 1 - Forum_PAGERLEN // 2 > 0):
+            for i in range(curpage - 1 - Forum_PAGERLEN // 2, curpage - 1 + Forum_PAGERLEN // 2 if curpage - 1 + Forum_PAGERLEN // 2 < allpage else allpage):
+                pagelist.append(i + 1)
+                if len(pagelist) > Forum_PAGERLEN - 1:
+                    break
+        else:
+            for i in range(0, curpage - 1 + Forum_PAGERLEN // 2 if curpage - 1 + Forum_PAGERLEN // 2 < allpage else allpage):
+                pagelist.append(i + 1)
+                if len(pagelist) > Forum_PAGERLEN - 1:
+                    break
+    return render(request, 'Forum_center.html', {'forums':posts, 'allpage': allpage, 'borderpage': allpage - 3, 'pagelist': pagelist, 'curpage': curpage})
+
+
+def ForumDetail(request, forumsid):
+    return render(request, '.html', locals())
 
 
 def BalagwIndex(request):
