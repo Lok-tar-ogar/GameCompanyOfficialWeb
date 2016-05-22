@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import render_to_response
 from NineCo.models import JobsInfo, Classification, Carousel, GameInfo, GameClass, News, \
-    NewsOfBus, NewsImg, Forum, Comment
+    NewsOfBus, NewsImg, Forum, Comment,User
 from django.core import serializers
 from django.http import HttpResponse, HttpResponseRedirect
 import base64
@@ -125,16 +125,18 @@ def login(request):
         uf = request.POST
         username = uf.get('username')
         pwd = uf.get('pwd')
-        d=sign(username+pwd)
-        data = {'userName': username, 'pwd': pwd, 'sign': d}
-        callbackData = {}#返回数据        
-        callbackData = json.loads(
-            str(post('http://123.59.24.94:8093/login', data), encoding="utf-8"))
-        if(callbackData['code'] == 1):
-            request.session['username'] = username
-            return HttpResponseRedirect('/')
+        # d=sign(username+pwd)
+        # data = {'userName': username, 'pwd': pwd, 'sign': d}
+        # callbackData = {}#返回数据
+        # callbackData = json.loads(
+        #     str(post('http://123.59.24.94:8093/login', data), encoding="utf-8"))
+        # if(callbackData['code'] == 1):
+        #     request.session['username'] = username
+        #     return HttpResponseRedirect('/')
+        if User.objects.filter(username=username,psd=pwd):
+            request.session['username']=username
+            return  HttpResponseRedirect('/')
         else:
-
             return render(request, 'login.html',{'info':'1'})
 
     else:
@@ -151,10 +153,22 @@ def logout(request):
 
 def regist(request):
     if request.method == "POST":
-        # try:
-        username = request.POST.get('username', None)
-        password = request.POST.get('password', None)
-        email = request.POST.get('mail',None)
+        try:
+            username = request.POST.get('username', None)
+            password = request.POST.get('psd', None)
+            email = request.POST.get('mail',None)
+            if User.objects.filter(username=username):
+                return HttpResponse('用户名已存在')
+            else:
+                user=User()
+                user.username=username
+                user.psd=password#就是明码存密码,就是这么屌
+                user.mail=email
+                user.save()
+                request.session['username']=username
+                return HttpResponseRedirect('/login')
+        except:
+            pass
     return render(request, 'regist.html')
 
 BPageCount = 3
