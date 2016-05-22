@@ -1,0 +1,84 @@
+{% extends "sample.html" %}
+{% block title %}
+论坛-九越互动
+{% endblock %}
+
+{% block head %}
+<style type="text/css">
+	.Newstitle{
+		font-size: x-large;
+		color:#B63053;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	.Newscontent{
+		margin-top:10px;
+		margin-bottom: 10px;
+	}
+	#newsD img{
+ 		max-width:100%;
+	}
+</style>
+{% endblock %}
+{% block content %}
+	<div class="container">
+{#		<div class="col-xs-12">#}
+{#			<div class="col-xs-1">&nbsp;</div>#}
+{#			<div class="col-xs-10">当前位置：九越资讯 / 公司资讯 / {{news.newsTitle}}</div>#}
+{#			<div class="col-xs-1">&nbsp;</div>#}
+{#		</div>#}
+		<div class="col-xs-12">
+			<div class="col-xs-1">&nbsp;</div>
+			<div class="col-xs-10" style="margin-top:20px;margin-bottom:50px;">
+				<div class="Newstitle">
+					<span>{{forum.title}}</span>
+				</div>
+				<div style="text-align:center;color:#4B4C4E">
+					发布时间：{{forum.create_time |date:"Y-m-d H:i"}}
+				</div>
+				<div>
+					<hr style=" margin-top:1px;height:2px;border:none;border-bottom:1px solid #DADADA;" />
+				</div>
+				<div id="newsD">
+					{{forum.content|safe}}
+				</div>
+
+			</div>
+			<div class="col-xs-1">&nbsp;</div>
+		</div>
+        {% for i in comment %}
+            <div class="col-xs-1">
+                &nbsp;
+            </div>
+            <div class="col-xs-10">
+                <div> 评论:{{ i.user.name }}</div>
+                <div style="height:300px; "> {{ i.content }} </div>
+            </div>
+            <div class="col-xs-1">
+                &nbsp;
+            </div>
+        {% endfor %}
+        {% if user %}
+        <div class ="col-xs-1">
+        </div>
+        <div class ="col-xs-10">
+            <div>评论：</div>
+            <div>
+                <textarea id="comment_content" name="comment_content" style="width:100%;height:300px;"></textarea>
+            </div>
+            <div>
+                <a class="btn btn-lg btn-danger" style="text-decoration:none;float:right;" href="?forum={{forum.id}}&content="+document.getElementById("comment_content").value;>评论</a>
+            </div>
+        </div>
+        <div class ="col-xs-1">
+        </div>
+        {% else %}
+            <div class ="col-xs-1"></div>
+            <div class ="col-xs-10" style >登陆后,才能评论！</div>
+            <div class ="col-xs-1"></div>
+        {% endif %}
+	</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
