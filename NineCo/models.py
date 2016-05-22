@@ -184,7 +184,7 @@ class User(models.Model):
 class Forum(models.Model):
     title = models.CharField('标题',max_length=50)
     user = models.IntegerField()
-    content = models.TextField('内容',max_length=5000)
+    content = models.TextField('内容', max_length=5000)
     status = models.IntegerField()
     create_time = models.DateTimeField(auto_now_add=True)
 
@@ -193,10 +193,11 @@ class Forum(models.Model):
 
 
 class Comment(models.Model):
-    content = models.TextField('内容', max_length = 5000)
+    user = models.ForeignKey(User)
+    content = models.TextField('内容', max_length=5000)
     create_time = models.DateTimeField(auto_now_add=True)
     forum = models.IntegerField()
-    response_comment = models.IntegerField()
 
     class Meta:
         verbose_name = "评论信息"
+        ordering = ["-create_time"]

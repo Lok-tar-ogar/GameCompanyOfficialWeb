@@ -304,7 +304,19 @@ def ForumCenter(request):
 
 
 def ForumDetail(request, forumsid):
-    return render(request, '.html', locals())
+    forum_id = int(request.GET.get('forum', '0'))
+    content = request.GET.get('content', None)
+    if forum_id!=0 and content:
+        com = Comment(
+            user=request.session["user"],
+            content=content,
+            forum=forum_id
+        )
+        com.save()
+    forum = Forum.objects.get(id=forumsid)
+    comment = Comment.objects.filter(id=forumsid).order_by("-create_time")
+    user_id = request.session["user"]
+    return render(request, 'forum.html', locals())
 
 
 def BalagwIndex(request):

@@ -14,14 +14,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Comment',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
                 ('content', models.TextField(verbose_name='内容', max_length=5000)),
                 ('create_time', models.DateTimeField(auto_now_add=True)),
                 ('forum', models.IntegerField()),
-                ('response_comment', models.IntegerField()),
+                ('user', models.ForeignKey(to='NineCo.User')),
             ],
             options={
                 'verbose_name': '评论信息',
+                'ordering': ['-create_time'],
             },
         ),
     ]
