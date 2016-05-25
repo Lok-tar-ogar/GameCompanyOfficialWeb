@@ -322,7 +322,7 @@ def ForumDetail(request, forumsid):
     content = request.GET.get('content', None)
     if forum_id!=0 and content:
         com = Comment(
-            user=request.session["user"],
+            user=User.objects.get(request.session["username"]).id,
             content=content,
             forum=forum_id
         )
