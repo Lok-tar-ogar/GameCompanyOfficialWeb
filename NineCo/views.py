@@ -318,18 +318,20 @@ def ForumCenter(request):
 
 
 def ForumDetail(request, forumsid):
+
     forum_id = int(request.GET.get('forum', '0'))
     content = request.GET.get('content', None)
-    if forum_id!=0 and content:
+    username = request.session.get("username", default=None)
+    if forum_id != 0 and content and username:
         com = Comment(
-            user=User.objects.get(request.session["username"]).id,
+            user=User.objects.get(username=username).id,
             content=content,
             forum=forum_id
         )
         com.save()
     forum = Forum.objects.get(id=forumsid)
     comment = Comment.objects.filter(id=forumsid).order_by("-create_time")
-    user_id = request.session["user"]
+    user_id = username
     return render(request, 'forum.html', locals())
 
 
