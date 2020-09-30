@@ -40,7 +40,7 @@ IV      -> Optional Initial Value bytes, must be supplied if using CBC mode.
 pad     -> Optional argument, set the pad character (PAD_NORMAL) to use during
 	   all encrypt/decrpt operations done with this instance.
 padmode -> Optional argument, set the padding mode (PAD_NORMAL or PAD_PKCS5)
-	   to use during all encrypt/decrpt operations done with this instance.
+	   to use during all encrypt/decrypt operations done with this instance.
 
 I recommend to use PAD_PKCS5 padding, as then you never need to worry about any
 padding issues, as the padding can be removed unambiguously upon decrypting
