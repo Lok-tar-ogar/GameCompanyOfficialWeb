@@ -1,4 +1,4 @@
-# NineEntertainment
+# NineEntertainment-An amazing project
 CMS website with django-bootstrap3 
 
 Django_Bootstrap3_CMS
